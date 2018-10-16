@@ -8,6 +8,10 @@ public class Player : Character
 
     private Vector3 startPosition;
 
+    private Dash dashAction;
+    public float dashForce;
+    public float dashDuration;
+
     //Other movements variables
     public Rigidbody2D MyRigidbody { get; set; }
 
@@ -23,12 +27,16 @@ public class Player : Character
         }
     }
 
-    // Use this for initialization
     public override void Start()
     {
         base.Start();
         startPosition = transform.position;
         MyRigidbody = GetComponent<Rigidbody2D>();
+
+        // Dash variables
+        dashAction = new Dash();
+        dashAction.DashDuration = dashDuration;
+        dashAction.DashForce = dashForce;
     }
 
     // Update is called once per frame
@@ -40,7 +48,18 @@ public class Player : Character
     {
         float horizontal = Input.GetAxis("Horizontal");
         Flip(horizontal);
-        HandleMovement(horizontal);
+
+        if(dashAction.IsDashing)
+        {
+            dashAction.Dashing(horizontal, MyRigidbody);
+        }
+        else
+        {
+            HandleMovement(horizontal);
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                dashAction.HandleDash(horizontal);
+        }
     }
 
     //Handles running, sliding and jumping of the player

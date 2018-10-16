@@ -4,131 +4,89 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dash : MonoBehaviour {
-
-    private Rigidbody2D body;
-
-
-    public float moveSpeed;
-
-    private float direction;
-
-    private bool isDashing;
-    public float dashSpeed;
-    public float dashLength;
+    
+    private Vector2 direction;
     private float dashCurrentTime;
 
-    // Use this for initialization
+    private bool isDashing;
+    private float dashForce;
+    private float dashDuration;
+
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
         isDashing = false;
-  
+        // Default values
+        dashForce = 30;
+        dashDuration = 0.2f;
     }
 
-    public void Update()
+    public void Dashing(float horizontal, Rigidbody2D player)
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        HandleDash(horizontal);
-    }
-
-    private void HandleDash(float horizontal)
-    {
-        if(isDashing)
-        {
-            //End of dash
+            // End of dash
             if (dashCurrentTime <= 0)
             {
-                //Reset the dash settings
-                dashCurrentTime = dashLength;
-                isDashing = false;
-
-                //Stop velocity
-                body.velocity = Vector2.zero;
+                // Reset the dash settings
+                dashCurrentTime = dashDuration;
+                IsDashing = false;
+                // Stop velocity
+                player.velocity = Vector2.zero;
             }
             else
             {
+                // Continue the dash
                 dashCurrentTime -= Time.deltaTime;
-                body.velocity = new Vector2(dashSpeed * direction, 0);
+                player.velocity = new Vector2(dashForce * direction.x, dashForce * direction.y);
             }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                isDashing = true;
-                Debug.Log("d");
-                if (horizontal > 0)
-                {
-                    direction = 1;
-                }
-                else if (horizontal < 0)
-                {
-                    direction = -1;
-                }
-            }
-        }
+    }
 
-
+    public void StartDash(float horizontal, float vertical)
+    {
+        isDashing = true;
+        // Direction of the dash
+        direction.x = horizontal;
+        direction.y = vertical;
     }
 
     /*
-    private Rigidbody2D body;
+     * GETTERS & SETTERS
+     */
+    
+    public float DashForce
+    {
+        get
+        {
+            return dashForce;
+        }
 
-    private bool dash;
-    [SerializeField]
-    private float dashForce;
-    [SerializeField]
-    private float dashSpeed;
-    private float dashCurrentTime;
-    public float dashTime;
-
-    private float direction;
-
-    // Use this for initialization
-    void Start () {
-        body = GetComponent<Rigidbody2D>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        float horizontal = Input.GetAxis("Horizontal");
-        HandleInput(horizontal);
-        HandleMovement(horizontal);
-        
+        set
+        {
+            dashForce = value;
+        }
     }
 
-    private void HandleMovement(float horizontal)
+    public bool IsDashing
     {
-        if (dash)
+        get
         {
-            dash = false;
-            dashSpeed = dashForce;
-            dashCurrentTime = dashTime;
-        }
-        else if (dashCurrentTime <= 0)
-        {
-            dashSpeed = 1;
-        }
-        else
-        {
-            dashCurrentTime -= Time.deltaTime;
+            return isDashing;
         }
 
-        body.velocity = new Vector2(direction * dashSpeed, body.velocity.y);
-
+        set
+        {
+            isDashing = value;
+        }
     }
 
-    private void HandleInput(float horizontal)
+    public float DashDuration
     {
-        // Pressing V
-        if (Input.GetKeyDown(KeyCode.V))
+        get
         {
-            dash = true;
-        }
-        if (horizontal!=0)
-        {
-            direction = horizontal;
+            return dashDuration;
         }
 
-    }*/
+        set
+        {
+            dashDuration = value;
+        }
+    }
 }
