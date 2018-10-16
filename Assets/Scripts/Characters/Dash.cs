@@ -20,7 +20,7 @@ public class Dash : MonoBehaviour {
         dashDuration = 0.2f;
     }
 
-    public void Dashing(float horizontal, Rigidbody2D player)
+    public void Dashing (Rigidbody2D player)
     {
             // End of dash
             if (dashCurrentTime <= 0)

@@ -8,12 +8,16 @@ public class Player : Character
 
     private Vector3 startPosition;
 
-    private Dash dashAction;
-    public float dashForce;
-    public float dashDuration;
-
     //Other movements variables
     public Rigidbody2D MyRigidbody { get; set; }
+
+
+    // Dash variables
+    private Dash dashAction;
+    [SerializeField]
+    private float dashForce;
+    [SerializeField]
+    private float dashDuration;
 
     public static Player Instance
     {
@@ -33,10 +37,12 @@ public class Player : Character
         startPosition = transform.position;
         MyRigidbody = GetComponent<Rigidbody2D>();
 
-        // Dash variables
-        dashAction = new Dash();
-        dashAction.DashDuration = dashDuration;
-        dashAction.DashForce = dashForce;
+        // Dash initialisation
+        dashAction = new Dash
+        {
+            DashDuration = dashDuration,
+            DashForce = dashForce
+        };
     }
 
     // Update is called once per frame
@@ -49,16 +55,15 @@ public class Player : Character
         float horizontal = Input.GetAxis("Horizontal");
         Flip(horizontal);
 
+        // Dash
         if(dashAction.IsDashing)
         {
-            dashAction.Dashing(horizontal, MyRigidbody);
+            dashAction.Dashing(MyRigidbody);
         }
         else
         {
             HandleMovement(horizontal);
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                dashAction.HandleDash(horizontal);
+            HandleInput(horizontal);
         }
     }
 
@@ -75,6 +80,15 @@ public class Player : Character
         if ((horizontal > 0 && !isFacingRight || horizontal < 0 && isFacingRight))
         {
             ChangeDirection();
+        }
+    }
+
+    private void HandleInput(float horizontal)
+    {
+        // Dash input
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            dashAction.StartDash(horizontal, 0);
         }
     }
 }
