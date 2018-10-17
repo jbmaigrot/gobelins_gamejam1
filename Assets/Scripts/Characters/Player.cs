@@ -52,19 +52,23 @@ public class Player : MonoBehaviour
         {
             dashAction.Dashing(MyRigidbody);
         }
-        else if (Input.GetButtonDown("Horizontal"))
+        else
         {
-            if (moveAction.GetIsMoving())
+            /*if (moveAction.GetIsMoving())
             {
                 moveAction.HandleAccelerationMovement(horizontal, curveX);
             }
-            else
-                moveAction.HandleSingleMovement(horizontal);
+            else*/
+            moveAction.HandleSingleMovement(horizontal);
+        }
+        /*else if (horizontal == 0)
+        {
+            moveAction.DontMove();
         }
         else
         {
             moveAction.DontMove();
-        }
+        }*/
     }
 
 
