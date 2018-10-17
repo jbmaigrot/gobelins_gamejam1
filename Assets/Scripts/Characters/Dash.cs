@@ -12,24 +12,25 @@ public class Dash {
     private float dashForce;
     private float dashDuration;
 
-
-    public void Dashing (Rigidbody2D player)
+    public Vector2 Dashing (Vector2 v)
     {
             // End of dash
-            if (dashCurrentTime <= 0)
+            if (dashCurrentTime >= dashDuration)
             {
                 // Reset the dash settings
-                dashCurrentTime = dashDuration;
+                dashCurrentTime = 0;
                 IsDashing = false;
                 // Stop velocity
-                player.velocity = Vector2.zero;
+                v = Vector2.zero;
             }
             else
             {
                 // Continue the dash
-                dashCurrentTime -= Time.deltaTime;
-                player.velocity = new Vector2(dashForce * direction.x, dashForce * direction.y);
+                dashCurrentTime += Time.deltaTime;
+                v.x = dashForce * direction.x;
+                v.y = dashForce * direction.y;
             }
+        return v;
     }
 
     public void StartDash(float horizontal, float vertical)
@@ -43,7 +44,7 @@ public class Dash {
     /*
      * GETTERS & SETTERS
      */
-    
+
     public float DashForce
     {
         get

@@ -37,7 +37,7 @@ public class MovePlayer
     }
 
     //Handles running
-    public void HandleSingleMovement(float horizontal)
+    public Vector2 HandleSingleMovement(float horizontal, Vector2 v)
     {
         //MyRigidbody.velocity = new Vector2(horizontal * 2 * movementSpeed, MyRigidbody.velocity.y);
 
@@ -63,9 +63,10 @@ public class MovePlayer
                 MyRigidbody.velocity = new Vector2(maxSpeed, MyRigidbody.velocity.y);
             }
         }*/
-        MyRigidbody.velocity = new Vector2(horizontal * 2 * movementSpeed, MyRigidbody.velocity.y);
+        v.x = horizontal * 2 * movementSpeed;
         /*isMoving = true;
         MyRigidbody.velocity = new Vector2(MyRigidbody.velocity.x + Acceleration * horizontal, MyRigidbody.velocity.y);*/
+        return v;
     }
 
     //Handles running
