@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 7994406}
   - component: {fileID: 7994407}
   - component: {fileID: 7994408}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: plateform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,11 +137,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 7994405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.39, y: 3.68, z: 0}
+  m_LocalPosition: {x: -10.390001, y: 3.68, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1930271551}
-  m_RootOrder: 2
+  m_Father: {fileID: 103801450}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7994407
 SpriteRenderer:
@@ -214,6 +214,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.05, y: 1.02}
   m_EdgeRadius: 0
+--- !u!1 &103801449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103801450}
+  m_Layer: 9
+  m_Name: BlackPlatforms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &103801450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 103801449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7994406}
+  - {fileID: 300534488}
+  - {fileID: 1115144776}
+  - {fileID: 1169066959}
+  m_Father: {fileID: 1930271551}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &141210931
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141524437}
   - component: {fileID: 141524438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: back_white (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +425,7 @@ GameObject:
   - component: {fileID: 300534488}
   - component: {fileID: 300534489}
   - component: {fileID: 300534490}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: plateform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,8 +442,8 @@ Transform:
   m_LocalPosition: {x: 5.15, y: 4.2, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1930271551}
-  m_RootOrder: 3
+  m_Father: {fileID: 103801450}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &300534489
 SpriteRenderer:
@@ -493,7 +525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639737914}
   - component: {fileID: 639737915}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: back_white (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,13 +599,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 757635473}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &757635473
 Transform:
   m_ObjectHideFlags: 0
@@ -610,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 799050394}
   - component: {fileID: 799050393}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: damier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +718,7 @@ GameObject:
   - component: {fileID: 834205472}
   - component: {fileID: 834205473}
   - component: {fileID: 834205474}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plateform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,8 +735,8 @@ Transform:
   m_LocalPosition: {x: -5.5, y: 3.68, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1930271551}
-  m_RootOrder: 1
+  m_Father: {fileID: 2051302828}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &834205473
 SpriteRenderer:
@@ -786,7 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837025510}
   - component: {fileID: 837025511}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: back_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 934825988}
   - component: {fileID: 934825989}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bck_black (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1021189273}
   - component: {fileID: 1021189274}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bck_black (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1145,7 @@ GameObject:
   - component: {fileID: 1063716644}
   - component: {fileID: 1063716645}
   - component: {fileID: 1063716646}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plateform (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,8 +1162,8 @@ Transform:
   m_LocalPosition: {x: 9.4, y: 5.62, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1930271551}
-  m_RootOrder: 8
+  m_Father: {fileID: 2051302828}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1063716645
 SpriteRenderer:
@@ -1213,7 +1245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1087130372}
   - component: {fileID: 1087130373}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: White (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1289,7 +1321,7 @@ GameObject:
   - component: {fileID: 1115144776}
   - component: {fileID: 1115144777}
   - component: {fileID: 1115144778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: plateform (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1306,8 +1338,8 @@ Transform:
   m_LocalPosition: {x: 11.31, y: 4.15, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1930271551}
-  m_RootOrder: 4
+  m_Father: {fileID: 103801450}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1115144777
 SpriteRenderer:
@@ -1420,7 +1452,7 @@ GameObject:
   - component: {fileID: 1169066959}
   - component: {fileID: 1169066960}
   - component: {fileID: 1169066961}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: plateform (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1437,8 +1469,8 @@ Transform:
   m_LocalPosition: {x: 17.22, y: 3.29, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1930271551}
-  m_RootOrder: 5
+  m_Father: {fileID: 103801450}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1169066960
 SpriteRenderer:
@@ -1548,7 +1580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239059601}
   - component: {fileID: 1239059600}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: damier (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1626,7 +1658,8 @@ GameObject:
   - component: {fileID: 1241351157}
   - component: {fileID: 1241351159}
   - component: {fileID: 1241351158}
-  m_Layer: 0
+  - component: {fileID: 1241351160}
+  m_Layer: 9
   m_Name: Doug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1750,6 +1783,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1241351160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1241351154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69fba9cadafeb840a215a2271686e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier:
 --- !u!1 &1351542068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,7 +1804,7 @@ GameObject:
   - component: {fileID: 1351542069}
   - component: {fileID: 1351542070}
   - component: {fileID: 1351542071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plateform (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1777,8 +1821,8 @@ Transform:
   m_LocalPosition: {x: 23.51, y: 2.11, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1930271551}
-  m_RootOrder: 9
+  m_Father: {fileID: 2051302828}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1351542070
 SpriteRenderer:
@@ -1860,7 +1904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1439950475}
   - component: {fileID: 1439950476}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: back_white (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1935,7 +1979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1623502362}
   - component: {fileID: 1623502361}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: damier (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2010,7 +2054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1652235359}
   - component: {fileID: 1652235360}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2086,7 +2130,7 @@ GameObject:
   - component: {fileID: 1655600619}
   - component: {fileID: 1655600620}
   - component: {fileID: 1655600621}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plateform (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2100,11 +2144,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1655600618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.26, y: 2.64, z: 0}
+  m_LocalPosition: {x: 2.2600002, y: 2.64, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1930271551}
-  m_RootOrder: 6
+  m_Father: {fileID: 2051302828}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1655600620
 SpriteRenderer:
@@ -2214,7 +2258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1722357573}
   - component: {fileID: 1722357574}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: White (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2336,15 +2380,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1041145556}
-  - {fileID: 834205472}
-  - {fileID: 7994406}
-  - {fileID: 300534488}
-  - {fileID: 1115144776}
-  - {fileID: 1169066959}
-  - {fileID: 1655600619}
-  - {fileID: 2112210180}
-  - {fileID: 1063716644}
-  - {fileID: 1351542069}
+  - {fileID: 103801450}
+  - {fileID: 2051302828}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2387,7 +2424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1986854035}
   - component: {fileID: 1986854036}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bck_black (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2453,6 +2490,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2051302827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051302828}
+  m_Layer: 8
+  m_Name: WhitePlatforms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2051302828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051302827}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 834205472}
+  - {fileID: 1655600619}
+  - {fileID: 2112210180}
+  - {fileID: 1063716644}
+  - {fileID: 1351542069}
+  m_Father: {fileID: 1930271551}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2068750512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,7 +2532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2068750513}
   - component: {fileID: 2068750514}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bck_black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2537,7 +2607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2081443255}
   - component: {fileID: 2081443256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2551,7 +2621,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2081443254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.45, y: 0, z: 0}
+  m_LocalPosition: {x: 2.45, y: 4.78, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1935416630}
@@ -2613,7 +2683,7 @@ GameObject:
   - component: {fileID: 2112210180}
   - component: {fileID: 2112210181}
   - component: {fileID: 2112210182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plateform (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2630,8 +2700,8 @@ Transform:
   m_LocalPosition: {x: 10.38, y: 2.64, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1930271551}
-  m_RootOrder: 7
+  m_Father: {fileID: 2051302828}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2112210181
 SpriteRenderer:
