@@ -10,11 +10,11 @@ public class MovePlayer
     [SerializeField]
     protected float movementSpeed = 0;
     [SerializeField]
-    protected float maxSpeed = 25;
+    protected float maxSpeed = 40;
     [SerializeField]
-    protected float Acceleration = 2000;
+    protected float Acceleration = 150;
     [SerializeField]
-    protected float Deceleration = 200;
+    protected float Deceleration = 1000;
 
     protected bool isFacingRight;
 
@@ -36,30 +36,29 @@ public class MovePlayer
     public void HandleMovement(float horizontal)
     {
         //MyRigidbody.velocity = new Vector2(horizontal * 2 * movementSpeed, MyRigidbody.velocity.y);
-        if ((horizontal<0) && (movementSpeed < maxSpeed))
-        {
-            movementSpeed = movementSpeed - Acceleration * Time.deltaTime;
-            if (movementSpeed < -maxSpeed)
-                movementSpeed = -maxSpeed;
-        }
 
-        else if ((horizontal > 0) && (movementSpeed > -maxSpeed))
+        if(horizontal < -0.1f)
         {
-            movementSpeed = movementSpeed + Acceleration * Time.deltaTime;
-            if (movementSpeed > maxSpeed)
-                movementSpeed = maxSpeed;
+            if(MyRigidbody.velocity.x > -maxSpeed)
+            {
+                MyRigidbody.AddForce(new Vector2(-Acceleration, 0.0f));
+            }
+            else
+            {
+                MyRigidbody.velocity = new Vector2(-maxSpeed, MyRigidbody.velocity.y);
+            }
         }
-        else
+        else if (horizontal > 0.1f)
         {
-            if (movementSpeed > (Deceleration * Time.deltaTime)) 
-         movementSpeed = movementSpeed - (Deceleration * Time.deltaTime);
-         else if (movementSpeed < -(Deceleration * Time.deltaTime)) 
-             movementSpeed = movementSpeed + (Deceleration * Time.deltaTime);
-         else movementSpeed = 0;
+            if (MyRigidbody.velocity.x < maxSpeed)
+            {
+                MyRigidbody.AddForce(new Vector2(Acceleration, 0.0f));
+            }
+            else
+            {
+                MyRigidbody.velocity = new Vector2(maxSpeed, MyRigidbody.velocity.y);
+            }
         }
-
-        Vector2 vector = new Vector2(MyRigidbody.transform.position.x + movementSpeed * Time.deltaTime, MyRigidbody.transform.position.y);
-        MyRigidbody.transform.position = vector;
     }
 
     //Makes the player turn the other way

@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private static Player instance;
 
     //Other movements variables
     public Rigidbody2D MyRigidbody { get; set; }
-
 
     // Dash variables
     private Dash dashAction;
@@ -17,18 +15,6 @@ public class Player : MonoBehaviour
     private float dashForce;
     [SerializeField]
     private float dashDuration;
-
-    public static Player Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = GameObject.FindObjectOfType<Player>();
-            }
-            return instance;
-        }
-    }
 
     public void Start()
     {
