@@ -55,15 +55,15 @@ public class Player : Character
         float horizontal = Input.GetAxis("Horizontal");
         Flip(horizontal);
 
+        HandleInput(horizontal);
         // Dash
-        if(dashAction.IsDashing)
+        if (dashAction.IsDashing)
         {
             dashAction.Dashing(MyRigidbody);
         }
         else
         {
             HandleMovement(horizontal);
-            HandleInput(horizontal);
         }
     }
 
