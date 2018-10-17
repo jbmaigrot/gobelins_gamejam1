@@ -17,54 +17,12 @@ public class BlackWhite : MonoBehaviour {
     private void HandleInput()
     {
         // Dash input
-        if (Input.GetKeyDown("joystick button 1"))
+        if (Input.GetKeyDown("c"))
         {
-            Debug.Log("1");
-        }
-
-        if (Input.GetKeyDown("joystick button 2"))
-        {
-            Debug.Log("2");
-        }
-
-        if (Input.GetKeyDown("joystick button 3"))
-        {
-            Debug.Log("3");
-        }
-
-        if (Input.GetKeyDown("joystick button 4"))
-        {
-            Debug.Log("4");
-        }
-
-        if (Input.GetKeyDown("joystick button 5"))
-        {
-            Debug.Log("5");
-        }
-
-        if (Input.GetKeyDown("joystick button 6"))
-        {
-            Debug.Log("6");
-        }
-
-        if (Input.GetKeyDown("joystick button 7"))
-        {
-            Debug.Log("7");
-        }
-
-        if (Input.GetKeyDown("joystick button 8"))
-        {
-            Debug.Log("8");
-        }
-
-        if (Input.GetKeyDown("joystick button 9"))
-        {
-            Debug.Log("9");
-        }
-
-        if (Input.GetKeyDown("joystick button 10"))
-        {
-            Debug.Log("10");
+            if (this.gameObject.layer == 9)
+                this.gameObject.layer = 8;
+            else
+                this.gameObject.layer = 9;
         }
     }
 }
