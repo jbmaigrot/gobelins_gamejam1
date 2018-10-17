@@ -63,7 +63,7 @@ public class MovePlayer
                 MyRigidbody.velocity = new Vector2(maxSpeed, MyRigidbody.velocity.y);
             }
         }*/
-        v = new Vector2(horizontal * 2 * movementSpeed, MyRigidbody.velocity.y);
+        v = new Vector2(horizontal * 2 * movementSpeed, v.y);
         //MyAnimator.SetFloat("speed", Mathf.Abs(horizontal));
         /*isMoving = true;
         MyRigidbody.velocity = new Vector2(MyRigidbody.velocity.x + Acceleration * horizontal, MyRigidbody.velocity.y);*/

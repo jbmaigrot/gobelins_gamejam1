@@ -71,14 +71,17 @@ public class Player : MonoBehaviour
         // Dash
         if (dashAction.IsDashing)
         {
+           
             v = dashAction.Dashing(v);
         }
         else if(dashButton)
         {
+            
             dashAction.StartDash(horizontal, 0);
         }
         else
         {
+            
             v = jumpAction.HandleJump(v);
             v = moveAction.HandleSingleMovement(horizontal, v);
         }
