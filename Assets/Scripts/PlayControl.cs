@@ -29,9 +29,13 @@ public class PlayControl : MonoBehaviour {
 
         }
 
-        if ((Input.GetAxis(name + "LT")==1 || Input.GetAxis(name + "RT")==1) && switchOn)
+        if ((Input.GetAxis(name + "LT") ==1 || Input.GetAxis(name + "RT") ==1) && switchOn)
         {
-            Debug.Log(Input.GetAxis(name + "LT"));
+            Debug.Log("Switch");
+            if (this.gameObject.layer == 9)
+                this.gameObject.layer = 8;
+            else
+                this.gameObject.layer = 9;
             switchOn = false;
         }
         else if((Input.GetAxis(name + "LT") == 0 || Input.GetAxis(name + "RT") == 0) && !switchOn)
