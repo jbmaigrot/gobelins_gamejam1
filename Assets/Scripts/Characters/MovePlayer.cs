@@ -63,15 +63,15 @@ public class MovePlayer
                 MyRigidbody.velocity = new Vector2(maxSpeed, MyRigidbody.velocity.y);
             }
         }*/
-        isMoving = true;
-        MyRigidbody.velocity = new Vector2(MyRigidbody.velocity.x + Acceleration * horizontal, MyRigidbody.velocity.y);
+        MyRigidbody.velocity = new Vector2(horizontal * 2 * movementSpeed, MyRigidbody.velocity.y);
+        /*isMoving = true;
+        MyRigidbody.velocity = new Vector2(MyRigidbody.velocity.x + Acceleration * horizontal, MyRigidbody.velocity.y);*/
     }
 
     //Handles running
     public void HandleAccelerationMovement(float horizontal, AnimationCurve curve)
     {
-        //MyRigidbody.velocity = new Vector2(horizontal * 4 * movementSpeed, MyRigidbody.velocity.y);
-        if( moveTime < maxMoveTime)
+        if ( moveTime < maxMoveTime)
         {
             MyRigidbody.velocity = new Vector2(maxSpeed * curve.Evaluate(moveTime / maxMoveTime), MyRigidbody.velocity.y);
             moveTime += Time.deltaTime;
