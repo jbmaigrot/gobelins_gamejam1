@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Animator MyAnimator { get; private set; }
 
     //Other movements variables
     public Rigidbody2D rb { get; set; }
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
+        MyAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
         // Dash initialisation
@@ -53,7 +55,7 @@ public class Player : MonoBehaviour
 
         // Move initialisation
         moveAction = new MovePlayer();
-        moveAction.Initialize(rb);
+        moveAction.Initialize(rb, MyAnimator);
     }
 
     // Update is called once per frame

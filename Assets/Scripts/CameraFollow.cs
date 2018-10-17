@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        target = GameObject.Find("Doug/CameraPoint").transform;
+        //target = GameObject.Find("Doug/CameraPoint").transform;
         //target = new Transform(target.position.x, 0.0f);
     }
 

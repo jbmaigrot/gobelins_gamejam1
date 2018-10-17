@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 45b1aa3a393f63044aea41979020fec0
+guid: e007beb632e362a4697200defe4b7f48
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Bong_Run_0
-    21300002: Bong_Run_1
-    21300004: Bong_Run_2
-    21300006: Bong_Run_3
+    21300000: Bong_Idle_0
+    21300002: Bong_Idle_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -67,7 +65,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -78,7 +76,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bong_Run_0
+      name: Bong_Idle_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 24
-        width: 270
-        height: 344
+        x: 38
+        y: 48
+        width: 401
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -102,19 +100,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55546ed0a187c64c9a42273874e8095
+      spriteID: 52a7fe457eaec7a4c94978baebfb2edd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bong_Run_1
+      name: Bong_Idle_1
       rect:
         serializedVersion: 2
-        x: 354
-        y: 24
-        width: 280
-        height: 346
+        x: 490
+        y: 49
+        width: 405
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,47 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03950f131e264a44da61f83c054c18e5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bong_Run_2
-      rect:
-        serializedVersion: 2
-        x: 713
-        y: 24
-        width: 286
-        height: 346
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc7356fa0f547784a925cd4062a61e97
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bong_Run_3
-      rect:
-        serializedVersion: 2
-        x: 1085
-        y: 34
-        width: 264
-        height: 336
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 7}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0d482b58f513074582c8794941cf8f3
+      spriteID: adaa2f2f7eda092479f9f78cd2258c9e
       vertices: []
       indices: 
       edges: []
@@ -170,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0e2612808539b254baae850a6b0cc405
+    spriteID: 91449ae869e2ef243b755b07c682fcff
     vertices: []
     indices: 
     edges: []

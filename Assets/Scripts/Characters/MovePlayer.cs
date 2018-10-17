@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MovePlayer
 {
-
     private Rigidbody2D MyRigidbody;
     private bool isMoving;
+    private Animator MyAnimator;
 
-    [SerializeField]
+   [SerializeField]
     protected float movementSpeed = 10;
     [SerializeField]
     protected float maxSpeed = 40;
@@ -64,9 +64,7 @@ public class MovePlayer
             }
         }*/
         v = new Vector2(horizontal * 2 * movementSpeed, MyRigidbody.velocity.y);
-        //MyAnimator.SetFloat("speed", Mathf.Abs(horizontal));
-        /*isMoving = true;
-        MyRigidbody.velocity = new Vector2(MyRigidbody.velocity.x + Acceleration * horizontal, MyRigidbody.velocity.y);*/
+        MyAnimator.SetFloat("PlayerSpeed", Mathf.Abs(horizontal));
         return v;
     }
 
@@ -96,9 +94,10 @@ public class MovePlayer
         MyRigidbody.transform.localScale = new Vector3(MyRigidbody.transform.localScale.x * -1, MyRigidbody.transform.localScale.y, MyRigidbody.transform.localScale.z);
     }
 
-    public void Initialize(Rigidbody2D myRigidbody)
+    public void Initialize(Rigidbody2D myRigidbody, Animator MyAnimator)
     {
         MyRigidbody = myRigidbody;
+        this.MyAnimator = MyAnimator;
         isFacingRight = true;
     }
 
