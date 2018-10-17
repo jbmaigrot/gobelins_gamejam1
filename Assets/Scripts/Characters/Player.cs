@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float dashDuration;
 
-    public AnimationCurve curveX = AnimationCurve.Linear(0, 1, 1, 0);
+    //public AnimationCurve curveX = AnimationCurve.Linear(0, 1, 1, 0);
 
     public void Start()
     {
@@ -54,21 +54,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            /*if (moveAction.GetIsMoving())
-            {
-                moveAction.HandleAccelerationMovement(horizontal, curveX);
-            }
-            else*/
             moveAction.HandleSingleMovement(horizontal);
         }
-        /*else if (horizontal == 0)
-        {
-            moveAction.DontMove();
-        }
-        else
-        {
-            moveAction.DontMove();
-        }*/
     }
 
 
