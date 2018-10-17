@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
 
     //Other movements variables
-    public Rigidbody2D MyRigidbody { get; set; }
+    public Rigidbody2D rb { get; set; }
+    Vector2 v;
 
     // Dash variables
     private Dash dashAction;
@@ -16,11 +17,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float dashDuration;
 
+    //Inputs
+    float horizontal;
+    bool dashButton;
+
     //public AnimationCurve curveX = AnimationCurve.Linear(0, 1, 1, 0);
 
     public void Start()
     {
-        MyRigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
 
         // Dash initialisation
         dashAction = new Dash
@@ -31,40 +36,41 @@ public class Player : MonoBehaviour
 
         // Move initialisation
         moveAction = new MovePlayer();
-        moveAction.Initialize(MyRigidbody);
+        moveAction.Initialize(rb);
     }
 
     // Update is called once per frame
     private void Update()
     {
-   
+    
     }
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        moveAction.Flip(horizontal);
+        GetInputs();
 
-        HandleInput(horizontal);
+        v = rb.velocity;
 
         // Dash
         if (dashAction.IsDashing)
         {
-            dashAction.Dashing(MyRigidbody);
+            v = dashAction.Dashing(v);
         }
-        else
-        {
-            moveAction.HandleSingleMovement(horizontal);
-        }
-    }
-
-
-    private void HandleInput(float horizontal)
-    {
-        // Dash input
-        if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown("joystick button 2"))
+        else if(dashButton)
         {
             dashAction.StartDash(horizontal, 0);
         }
+        else
+        {
+            v = moveAction.HandleSingleMovement(horizontal, v);
+        }
+
+        rb.velocity = v;
+    }
+
+    private void GetInputs()
+    {
+        horizontal = Input.GetAxis("Horizontal");
+        dashButton = Input.GetButtonDown("Dash");
     }
 }
