@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float dashDuration;
 
+    public AnimationCurve curveX = AnimationCurve.Linear(0, 1, 1, 0);
+
     public void Start()
     {
         MyRigidbody = GetComponent<Rigidbody2D>();
@@ -29,7 +31,7 @@ public class Player : MonoBehaviour
 
         // Move initialisation
         moveAction = new MovePlayer();
-        moveAction.initialize(MyRigidbody);
+        moveAction.Initialize(MyRigidbody);
     }
 
     // Update is called once per frame
@@ -49,9 +51,18 @@ public class Player : MonoBehaviour
         {
             dashAction.Dashing(MyRigidbody);
         }
+        else if (Input.GetButtonDown("Horizontal"))
+        {
+            if (moveAction.GetIsMoving())
+            {
+                moveAction.HandleAccelerationMovement(horizontal, curveX);
+            }
+            else
+                moveAction.HandleSingleMovement(horizontal);
+        }
         else
         {
-            moveAction.HandleMovement(horizontal);
+            moveAction.DontMove();
         }
     }
 
