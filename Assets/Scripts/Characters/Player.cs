@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+   
     }
 
     private void FixedUpdate()
@@ -74,7 +75,7 @@ public class Player : MonoBehaviour
     private void HandleInput(float horizontal)
     {
         // Dash input
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown("joystick button 2"))
         {
             dashAction.StartDash(horizontal, 0);
         }
