@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
 
     //public AnimationCurve curveX = AnimationCurve.Linear(0, 1, 1, 0);
 
+    [SerializeField]
+    private string name;
+
     public void Start()
     {
         MyAnimator = GetComponent<Animator>();
@@ -93,7 +96,7 @@ public class Player : MonoBehaviour
 
     private void GetInputs()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        dashButton = Input.GetButtonDown("Dash");
+        horizontal = Input.GetAxis(name + "Horizontal");
+        dashButton = Input.GetButtonDown(name + "Dash");
     }
 }
