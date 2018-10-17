@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dash : MonoBehaviour {
+public class Dash {
     
     private Vector2 direction;
     private float dashCurrentTime;
@@ -12,13 +12,6 @@ public class Dash : MonoBehaviour {
     private float dashForce;
     private float dashDuration;
 
-    void Start()
-    {
-        isDashing = false;
-        // Default values
-        dashForce = 30;
-        dashDuration = 0.2f;
-    }
 
     public void Dashing (Rigidbody2D player)
     {

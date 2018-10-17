@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Character
+public class Player : MonoBehaviour
 {
     private static Player instance;
-
-    private Vector3 startPosition;
 
     //Other movements variables
     public Rigidbody2D MyRigidbody { get; set; }
@@ -14,6 +12,7 @@ public class Player : Character
 
     // Dash variables
     private Dash dashAction;
+    private MovePlayer moveAction;
     [SerializeField]
     private float dashForce;
     [SerializeField]
@@ -31,10 +30,8 @@ public class Player : Character
         }
     }
 
-    public override void Start()
+    public void Start()
     {
-        base.Start();
-        startPosition = transform.position;
         MyRigidbody = GetComponent<Rigidbody2D>();
 
         // Dash initialisation
@@ -43,6 +40,10 @@ public class Player : Character
             DashDuration = dashDuration,
             DashForce = dashForce
         };
+
+        // Move initialisation
+        moveAction = new MovePlayer();
+        moveAction.initialize(MyRigidbody);
     }
 
     // Update is called once per frame
@@ -53,9 +54,10 @@ public class Player : Character
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        Flip(horizontal);
+        moveAction.Flip(horizontal);
 
         HandleInput(horizontal);
+
         // Dash
         if (dashAction.IsDashing)
         {
@@ -63,25 +65,10 @@ public class Player : Character
         }
         else
         {
-            HandleMovement(horizontal);
+            moveAction.HandleMovement(horizontal);
         }
     }
 
-    //Handles running, sliding and jumping of the player
-    private void HandleMovement(float horizontal)
-    {
-        MyRigidbody.velocity = new Vector2(horizontal * movementSpeed, MyRigidbody.velocity.y);
-    }
-
-    //Makes the player turn the other way
-    private void Flip(float horizontal)
-    {
-        //If the player is not sliding or jumping, the player faces the other direction
-        if ((horizontal > 0 && !isFacingRight || horizontal < 0 && isFacingRight))
-        {
-            ChangeDirection();
-        }
-    }
 
     private void HandleInput(float horizontal)
     {
