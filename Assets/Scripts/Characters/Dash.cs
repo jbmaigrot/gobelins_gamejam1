@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dash : MonoBehaviour {
+public class Dash {
     
     private Vector2 direction;
     private float dashCurrentTime;
