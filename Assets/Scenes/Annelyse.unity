@@ -3395,8 +3395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c47c4af2eaefe4a8c22f098e18b129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 30
-  dashDuration: 0.2
+  dashForce: 10
+  dashDuration: 10
 --- !u!50 &2042710364
 Rigidbody2D:
   serializedVersion: 4

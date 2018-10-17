@@ -2,28 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovePlayer : MonoBehaviour
+public class MovePlayer
 {
 
-    public Rigidbody2D MyRigidbody { get; set; }
+    private Rigidbody2D MyRigidbody;
 
     [SerializeField]
-    protected float movementSpeed;
+    protected float movementSpeed = 0;
     [SerializeField]
     protected float maxSpeed = 25;
     [SerializeField]
     protected float Acceleration = 2000;
     [SerializeField]
-    protected float Deceleration = 1;
+    protected float Deceleration = 200;
 
     protected bool isFacingRight;
 
-    // Use this for initialization
-    void Start()
-    {
-        isFacingRight = true;
-        MyRigidbody = GetComponent<Rigidbody2D>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -33,19 +27,28 @@ public class MovePlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        Flip(horizontal);
-        HandleMovement(horizontal);
+        //float horizontal = Input.GetAxis("Horizontal");
+        //Flip(horizontal);
+        //HandleMovement(horizontal);
     }
 
     //Handles running
-    private void HandleMovement(float horizontal)
+    public void HandleMovement(float horizontal)
     {
         //MyRigidbody.velocity = new Vector2(horizontal * 2 * movementSpeed, MyRigidbody.velocity.y);
-        if ((Input.GetKey("left")) && (movementSpeed < maxSpeed))
+        if ((horizontal<0) && (movementSpeed < maxSpeed))
+        {
             movementSpeed = movementSpeed - Acceleration * Time.deltaTime;
-        else if ((Input.GetKey("right")) && (movementSpeed > -maxSpeed))
+            if (movementSpeed < -maxSpeed)
+                movementSpeed = -maxSpeed;
+        }
+
+        else if ((horizontal > 0) && (movementSpeed > -maxSpeed))
+        {
             movementSpeed = movementSpeed + Acceleration * Time.deltaTime;
+            if (movementSpeed > maxSpeed)
+                movementSpeed = maxSpeed;
+        }
         else
         {
             if (movementSpeed > (Deceleration * Time.deltaTime)) 
@@ -54,12 +57,13 @@ public class MovePlayer : MonoBehaviour
              movementSpeed = movementSpeed + (Deceleration * Time.deltaTime);
          else movementSpeed = 0;
         }
-        Vector2 vector = new Vector2(transform.position.x + movementSpeed * Time.deltaTime, MyRigidbody.transform.position.y);
+
+        Vector2 vector = new Vector2(MyRigidbody.transform.position.x + movementSpeed * Time.deltaTime, MyRigidbody.transform.position.y);
         MyRigidbody.transform.position = vector;
     }
 
     //Makes the player turn the other way
-    private void Flip(float horizontal)
+    public void Flip(float horizontal)
     {
         //If the player is not sliding or jumping, the player faces the other direction
         if ((horizontal > 0 && !isFacingRight || horizontal < 0 && isFacingRight))
@@ -71,7 +75,13 @@ public class MovePlayer : MonoBehaviour
     private void ChangeDirection()
     {
         isFacingRight = !isFacingRight;
-        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        MyRigidbody.transform.localScale = new Vector3(MyRigidbody.transform.localScale.x * -1, MyRigidbody.transform.localScale.y, MyRigidbody.transform.localScale.z);
+    }
+
+    public void initialize(Rigidbody2D myRigidbody)
+    {
+        MyRigidbody = myRigidbody;
+        isFacingRight = true;
     }
 }
 

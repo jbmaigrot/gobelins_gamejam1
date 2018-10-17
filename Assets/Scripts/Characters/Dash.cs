@@ -12,13 +12,6 @@ public class Dash {
     private float dashForce;
     private float dashDuration;
 
-    void Start()
-    {
-        isDashing = false;
-        // Default values
-        dashForce = 30;
-        dashDuration = 0.2f;
-    }
 
     public void Dashing (Rigidbody2D player)
     {
