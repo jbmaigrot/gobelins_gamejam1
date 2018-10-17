@@ -20,18 +20,15 @@ public class PlayControl : MonoBehaviour {
 
         if(Input.GetButtonDown(name+"Jump"))
         {
-            Debug.Log("Jump");
         }
 
         if (Input.GetButtonDown(name + "Dash"))
         {
-            Debug.Log("Dash");
 
         }
 
         if ((Input.GetAxis(name + "LT") ==1 || Input.GetAxis(name + "RT") ==1) && switchOn)
         {
-            Debug.Log("Switch");
             if (this.gameObject.layer == 9)
                 this.gameObject.layer = 8;
             else

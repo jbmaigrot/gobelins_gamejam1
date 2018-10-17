@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     //Inputs
     float horizontal;
     bool dashButton;
+    bool jumpButton;
 
     //public AnimationCurve curveX = AnimationCurve.Linear(0, 1, 1, 0);
 
@@ -86,11 +87,9 @@ public class Player : MonoBehaviour
         }
         else
         {
-            
-            v = jumpAction.HandleJump(v);
+            v = jumpAction.HandleJump(v, jumpButton);
             v = moveAction.HandleSingleMovement(horizontal, v);
         }
-
         rb.velocity = v;
     }
 
@@ -98,5 +97,7 @@ public class Player : MonoBehaviour
     {
         horizontal = Input.GetAxis(name + "Horizontal");
         dashButton = Input.GetButtonDown(name + "Dash");
+        jumpButton = Input.GetButtonDown(name + "Jump");
+
     }
 }

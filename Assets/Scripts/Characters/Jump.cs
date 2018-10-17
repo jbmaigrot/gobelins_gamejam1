@@ -15,7 +15,7 @@ public class Jump {
     private AnimationCurve jumpCurve = AnimationCurve.Linear(0, 0, 1, 0);
 
     // Update is called once per frame
-    public Vector2 HandleJump (Vector2 v) {
+    public Vector2 HandleJump (Vector2 v, bool jumpButton) {
         /*if (player.gameObject.layer == 9)
         {
             layer = 8;
@@ -25,13 +25,13 @@ public class Jump {
             layer = 9;
         }*/
         grounded = Physics2D.Linecast(player.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Linecast(player.position, groundCheck.position, player.gameObject.layer);
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (jumpButton && grounded)
         {
             jump = true;
             jumpTime += Time.deltaTime;
             v.y = jumpSpeed;
         }
-        else if (Input.GetButton("Jump") && jump && jumpTime < maxJumpTime)
+        else if (jumpButton && jump && jumpTime < maxJumpTime)
         {
             v.y = jumpSpeed * JumpCurve.Evaluate(jumpTime / maxJumpTime);
             jumpTime += Time.deltaTime;
@@ -42,7 +42,7 @@ public class Jump {
             jumpTime = 0;
         }
 
-        Debug.Log("Speed : "  + v);
+        Debug.Log("Speed : "  + v.y);
         return v;
     }
 
