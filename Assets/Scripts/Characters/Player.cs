@@ -12,10 +12,17 @@ public class Player : MonoBehaviour
     // Dash variables
     private Dash dashAction;
     private MovePlayer moveAction;
+    private Jump jumpAction;
     [SerializeField]
     private float dashForce;
     [SerializeField]
     private float dashDuration;
+
+    //Jump variables
+    public float maxJumpTime = 0.5f;
+    public float jumpSpeed = 61;
+    public Transform groundCheck;
+    public AnimationCurve jumpCurve = AnimationCurve.Linear(0, 0, 1, 0);
 
     //Inputs
     float horizontal;
@@ -32,6 +39,16 @@ public class Player : MonoBehaviour
         {
             DashDuration = dashDuration,
             DashForce = dashForce
+        };
+
+        // Jump initialisation
+        jumpAction = new Jump
+        {
+            MaxJumpTime = maxJumpTime,
+            JumpSpeed = jumpSpeed,
+            GroundCheck = groundCheck,
+            JumpCurve = jumpCurve,
+            Player = transform
         };
 
         // Move initialisation
@@ -62,6 +79,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            v = jumpAction.HandleJump(v);
             v = moveAction.HandleSingleMovement(horizontal, v);
         }
 
