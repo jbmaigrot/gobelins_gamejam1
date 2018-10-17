@@ -10,7 +10,7 @@ public class MovePlayer
     [SerializeField]
     protected float movementSpeed = 0;
     [SerializeField]
-    protected float maxSpeed = 25;
+    protected float maxSpeed = 10;
     [SerializeField]
     protected float Acceleration = 2000;
     [SerializeField]
