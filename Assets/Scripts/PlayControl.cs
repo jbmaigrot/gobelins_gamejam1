@@ -1,13 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayControl : MonoBehaviour {
     private Rigidbody2D rb;
     public string name;
+    private Boolean switchOn;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        switchOn = true;
 	}
 	
 	// Update is called once per frame
@@ -26,10 +29,14 @@ public class PlayControl : MonoBehaviour {
 
         }
 
-        if (Input.GetAxis(name + "LT")>0 || Input.GetAxis(name + "RT")>0)
+        if ((Input.GetAxis(name + "LT")==1 || Input.GetAxis(name + "RT")==1) && switchOn)
         {
-            Debug.Log("BW");
-
+            Debug.Log(Input.GetAxis(name + "LT"));
+            switchOn = false;
+        }
+        else if((Input.GetAxis(name + "LT") == 0 || Input.GetAxis(name + "RT") == 0) && !switchOn)
+        {
+            switchOn = true;
         }
 
     }
