@@ -10,6 +10,9 @@ public class CameraScroll : MonoBehaviour {
 
     private int currentPoint;
 
+    [SerializeField]
+    private GameObject background;
+
     void Start () {
         transform.position = pathPoints[0].position;
         currentPoint = 0;
@@ -23,5 +26,6 @@ public class CameraScroll : MonoBehaviour {
         }
         // Camera moving to the next pathPoint
         transform.position = Vector3.MoveTowards(transform.position, pathPoints[currentPoint].position, moveSpeed * Time.deltaTime);
+        background.transform.position = Vector3.MoveTowards(background.transform.position, pathPoints[currentPoint].position, moveSpeed/7 * Time.deltaTime);
     }
 }
