@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4284066173947278}
   - component: {fileID: 212394293342637866}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,9 +36,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4760942549273448}
   - component: {fileID: 61616600870643878}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: White3
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4311612036353986}
   - component: {fileID: 212241299497164404}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4801310048897574}
   - component: {fileID: 212010181130036590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

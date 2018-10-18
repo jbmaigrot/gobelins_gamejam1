@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerBis : MonoBehaviour
 {
     public Animator MyAnimator { get; private set; }
+
+    [SerializeField]
+    private RuntimeAnimatorController whiteController;
+    [SerializeField]
+    private RuntimeAnimatorController blackController;
+
     [SerializeField]
     private string playerName;
     protected bool isFacingRight;
@@ -111,9 +117,16 @@ public class PlayerBis : MonoBehaviour
         if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1) && switchOn)
         {
             if (this.gameObject.layer == 9)
+            {
                 this.gameObject.layer = 8;
+                this.gameObject.GetComponent<Animator>().runtimeAnimatorController = whiteController as RuntimeAnimatorController;
+            }
             else
+            {
                 this.gameObject.layer = 9;
+                this.gameObject.GetComponent<Animator>().runtimeAnimatorController = blackController as RuntimeAnimatorController;
+            }
+
             switchOn = false;
         }
         else if ((Input.GetAxis(playerName + "LT") == 0 || Input.GetAxis(playerName + "RT") == 0) && !switchOn)
@@ -213,7 +226,6 @@ public class PlayerBis : MonoBehaviour
     //Changes the weight of animator layers
     private void HandleLayers()
     {
-        Debug.Log(isGrounded);
         //If the player is in the air, AirLayer is the main layer
         if (!isGrounded)
         {

@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1687759303849358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.39, y: -0.14, z: 0}
+  m_LocalPosition: {x: -3.09, y: -0.12, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_Children:
   - {fileID: 4688957154907340}
@@ -175,7 +175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.226136, y: 8.938408}
+  m_Size: {x: 7.515751, y: 8.938408}
   m_EdgeRadius: 0
 --- !u!95 &95019809438328374
 Animator:
@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   falling: 22
   jumping: 10
+  playerName: One
 --- !u!114 &114763315282239100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,6 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdaf1b1f2edc8e64799440e8a0c30ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whiteController: {fileID: 9100000, guid: fac36ed6299353949a8d2d51530f7895, type: 2}
+  blackController: {fileID: 9100000, guid: 7750ee8639360b1418238d8031d861e9, type: 2}
   playerName: One
   dashForce: 30
   dashDuration: 0.2
@@ -265,7 +268,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 50e1d067cd73f7444a24ca49d879dbbc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
