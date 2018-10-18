@@ -122,7 +122,6 @@ public class PlayerBis : MonoBehaviour
         if (isGrounded && jump)
         {
             jump = false;
-            Debug.Log(rb.name);
             //rb.AddForce(new Vector2(10,10));
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
@@ -140,9 +139,9 @@ public class PlayerBis : MonoBehaviour
 
                 for (int i = 0; i < colliders.Length; i++)
                 {
-                    //If the colliders collide with something else than the player, then the players is grounded
-                    if (colliders[i].gameObject != gameObject && colliders[i].gameObject.CompareTag("Floor"))
+                    if(colliders[i].gameObject != gameObject && (colliders[i].gameObject.CompareTag("Floor") || ((this.gameObject.layer == 9 && colliders[i].gameObject.layer == 8) || (this.gameObject.layer == 8 && colliders[i].gameObject.layer == 9))))
                     {
+                        //If the colliders collide with something else than the player, then the players is grounded
                         jump = true;
                         return true;
                     }
