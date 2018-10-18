@@ -146,4 +146,20 @@ public class Player : MonoBehaviour
             MyAnimator.SetLayerWeight(1, 0);
         }
     }
+
+    //Changes the weight of animator layers
+    private void DamagePlayer()
+    {
+        //If the player is in the air, AirLayer is the main layer
+        if (!jumpAction.IsGrounded())
+        {
+            MyAnimator.SetLayerWeight(1, 1);
+        }
+
+        //If the player is on the ground, the ground layer is the main layer
+        else
+        {
+            MyAnimator.SetLayerWeight(1, 0);
+        }
+    }
 }

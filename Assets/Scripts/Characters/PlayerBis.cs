@@ -8,6 +8,7 @@ public class PlayerBis : MonoBehaviour
     [SerializeField]
     private string playerName;
     protected bool isFacingRight;
+    private int health;
 
     //Other movements variables
     public Rigidbody2D rb { get; set; }
@@ -44,6 +45,7 @@ public class PlayerBis : MonoBehaviour
         MyAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         isFacingRight = true;
+        health = 3;
 
         // Dash initialisation
         dashAction = new Dash
@@ -151,6 +153,27 @@ public class PlayerBis : MonoBehaviour
         return false;
 
     }
+    private void DamagePlayer()
+    {
+        health--;
+        if (!IsDead())
+        {
+            //MyAnimator.SetTrigger("damage");
+            RespawnPlayer();
+        }
+        else
+        {
+            //MyAnimator.SetLayerWeight(1, 0);
+            //MyAnimator.SetTrigger("death");
+        }
+    }
 
+    private bool IsDead()
+    {
+        return health <= 0;
+    }
 
+    private void RespawnPlayer()
+    {
+    }
 }
