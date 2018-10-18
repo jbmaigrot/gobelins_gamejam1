@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jump {
+    private Animator MyAnimator;
     private bool isJumping = false;
     private bool isLanding = false;
     private float jumpTime = 0;
@@ -44,7 +45,18 @@ public class Jump {
 
     public bool IsGrounded()
     {
-        return Physics2D.Linecast(player.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Linecast(player.position, groundCheck.position, player.gameObject.layer);
+        if (Physics2D.Linecast(player.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Linecast(player.position, groundCheck.position, player.gameObject.layer))
+        {
+            MyAnimator.ResetTrigger("Jump");
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void Initialize(Animator animator)
+    {
+        MyAnimator = animator;
     }
 
     //Getters and setters

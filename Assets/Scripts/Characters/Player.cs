@@ -87,15 +87,16 @@ public class Player : MonoBehaviour
         else if(jumpButton)
         {
             v = jumpAction.QuickJump(v);
+            MyAnimator.SetTrigger("Jump");
         }
         else if (jumpButton && jumpAction.IsJumping())
         {
             v = jumpAction.LongJump(v);
-
+            MyAnimator.SetTrigger("Jump");
         }
         else if (rb.velocity.y < 0)
         {
-             MyAnimator.SetBool("Land", true);
+            ///MyAnimator.SetBool("Land", true);
             jumpAction.Land();
         }
         else 
