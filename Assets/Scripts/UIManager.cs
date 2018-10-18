@@ -33,11 +33,13 @@ public class UIManager : MonoBehaviour {
 
     }
 
-    public void TakeDamageUI(int nbLifes)
+    public void TakeDamageUI(int nbLifes, string player)
     {
+  
+
         if (nbLifes >= 0)
         {
-            ui.transform.Find("Life").GetChild(nbLifes).GetComponent<Image>().enabled = false;
+            ui.transform.Find(player+"/Life").GetChild(nbLifes).GetComponent<Image>().enabled = false;
         }
     }
 
