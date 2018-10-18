@@ -33,7 +33,7 @@ public class PlayerBis : MonoBehaviour
     private LayerMask groundMask;
     private bool isGrounded;
     private bool canJump;
-
+    private bool switchOn;
 
     //Inputs
     float horizontal;
@@ -97,6 +97,20 @@ public class PlayerBis : MonoBehaviour
         {
             Jump();
         }
+
+        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1) && switchOn)
+        {
+            if (this.gameObject.layer == 9)
+                this.gameObject.layer = 8;
+            else
+                this.gameObject.layer = 9;
+            switchOn = false;
+        }
+        else if ((Input.GetAxis(playerName + "LT") == 0 || Input.GetAxis(playerName + "RT") == 0) && !switchOn)
+        {
+            switchOn = true;
+        }
+
 
     }
 
