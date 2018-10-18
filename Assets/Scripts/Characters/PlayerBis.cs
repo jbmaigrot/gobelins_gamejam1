@@ -49,7 +49,7 @@ public class PlayerBis : MonoBehaviour
         isFacingRight = true;
         canMove = true;
         health = 3;
-        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+        //shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
         // Dash initialisation
         dashAction = new Dash
