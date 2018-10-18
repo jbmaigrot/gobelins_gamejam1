@@ -78,14 +78,13 @@ public class Player : MonoBehaviour
         // Dash
         if (dashAction.IsDashing)
         {
-           
             v = dashAction.Dashing(v);
         }
         else if(dashButton)
         {           
             dashAction.StartDash(horizontal, 0);
         }
-        else if(jumpButton )
+        else if(jumpButton)
         {
             v = jumpAction.QuickJump(v);
         }
@@ -100,14 +99,17 @@ public class Player : MonoBehaviour
             jumpAction.Land();
         }
         else if (!jumpAction.IsJumping())
+        {
             v = moveAction.HandleMovement(horizontal, v);
+        }
+
         rb.velocity = v;
     }
 
     private void GetInputs()
     {
         horizontal = Input.GetAxis(playerName + "Horizontal");
-        //dashButton = Input.GetButtonDown(playerName + "Dash");
+        dashButton = Input.GetButtonDown(playerName + "Dash");
         jumpButton = Input.GetButtonDown(playerName + "Jump");
 
     }
