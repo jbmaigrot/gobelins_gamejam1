@@ -20,13 +20,13 @@ public class BetterJump : MonoBehaviour {
     void FixedUpdate()
     {
         //falling
-        if (body.velocity.y < -0.1f)
+        if (body.velocity.y < -0.2f)
         {
-            body.gravityScale = falling*2;
+            body.gravityScale = falling;
         }
-        else if (body.velocity.y > 0.1 && !Input.GetButton(playerName + "Jump"))
+        else if (body.velocity.y > 0 && !Input.GetButtonDown(playerName + "Jump"))
         {
-            body.gravityScale = jumping*2;
+            body.gravityScale = jumping;
         }
         else
         {
