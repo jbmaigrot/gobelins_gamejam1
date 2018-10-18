@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4496430185854594}
   - component: {fileID: 212396243891516460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4306957846606424}
   - component: {fileID: 212517740603436044}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4492474399221994}
   - component: {fileID: 212694010805326870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4084701953110570}
   - component: {fileID: 212187080342827950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4702102507094538}
   - component: {fileID: 212350372456529956}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4229291382034160}
   - component: {fileID: 212300328214045948}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4085527232101802}
   - component: {fileID: 212173350953038464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,9 +132,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4798549611764890}
   - component: {fileID: 61117086890794690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Black7
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,8 +236,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1589575715780770}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.015132, y: 2.988, z: 0.11359262}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.32, y: 3.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4085527232101802}

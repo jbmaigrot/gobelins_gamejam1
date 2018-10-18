@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4248914834923550}
   - component: {fileID: 212731051964493464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,9 +36,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4447625858696350}
   - component: {fileID: 61344500079208670}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: White5
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4644748834316074}
   - component: {fileID: 212876345360577102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4437169840884196}
   - component: {fileID: 212309553178640542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4314313207189878}
   - component: {fileID: 212359278619360518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915794750735782}
   - component: {fileID: 212239876804882044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

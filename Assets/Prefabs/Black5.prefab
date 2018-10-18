@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4015742096393810}
   - component: {fileID: 212232305035862978}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4986961854622138}
   - component: {fileID: 212656476933278926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4056295938899380}
   - component: {fileID: 212452658323441382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,9 +68,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4040749516566558}
   - component: {fileID: 61625875915887476}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Black5
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4308959236819796}
   - component: {fileID: 212131214713047976}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4557461572990716}
   - component: {fileID: 212121679063212206}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MiddleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
