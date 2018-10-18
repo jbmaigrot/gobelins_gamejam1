@@ -154,8 +154,9 @@ public class PlayerBis : MonoBehaviour
         {
             canJump = false;
             isGrounded = false;
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             MyAnimator.SetTrigger("Jump");
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+         
         }
     }
 
