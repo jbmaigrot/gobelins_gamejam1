@@ -1447,18 +1447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ace32d4b2e80944aa53f6acfe14b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Two
-  dashForce: 30
-  dashDuration: 0.2
-  jumpForce: 30
-  groundPoints:
-  - {fileID: 1961419196}
-  - {fileID: 1476740967}
-  - {fileID: 1329214769}
-  groundRadius: 0.2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!95 &1241351161
 Animator:
   serializedVersion: 3
@@ -2462,7 +2450,7 @@ Animator:
   m_GameObject: {fileID: 2081443254}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4828abbb39ca0574996521aac1d68960, type: 2}
+  m_Controller: {fileID: 9100000, guid: fac36ed6299353949a8d2d51530f7895, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2479,7 +2467,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2081443254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ace32d4b2e80944aa53f6acfe14b9a, type: 3}
+  m_Script: {fileID: 11500000, guid: fdaf1b1f2edc8e64799440e8a0c30ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: One
@@ -2488,8 +2476,6 @@ MonoBehaviour:
   jumpForce: 30
   groundPoints:
   - {fileID: 1183309282}
-  - {fileID: 2129738945}
-  - {fileID: 1422282866}
   groundRadius: 0.2
   groundMask:
     serializedVersion: 2
