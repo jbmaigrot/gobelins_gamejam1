@@ -81,7 +81,7 @@ public class PlayerBis : MonoBehaviour
         }
         isGrounded = IsGrounded(rb);
 
-        if (v.y < 0)
+        if (v.y < -0.2 )
         {
             MyAnimator.SetBool("Land", true);
         }
@@ -161,7 +161,7 @@ public class PlayerBis : MonoBehaviour
 
     private bool IsGrounded(Rigidbody2D MyRigidbody)
     {
-        if (MyRigidbody.velocity.y <= 0)
+        if (MyRigidbody.velocity.y <= 0.2)
         {
             //MyRigidbody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
             foreach (Transform point in groundPoints)
