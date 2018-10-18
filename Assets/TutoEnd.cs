@@ -7,6 +7,7 @@ public class TutoEnd : MonoBehaviour {
     public CameraScroll mainCamera;
     public Transform player1;
     public Transform player2;
+    public GameObject death;
     public Collider2D invisibleWall;
 
     private Collider2D trigger;
@@ -19,11 +20,10 @@ public class TutoEnd : MonoBehaviour {
     // Update is called once per frame
     
 	void Update () {
-        Debug.Log(trigger.bounds);
-        Debug.Log(player1.position);
         if (trigger.bounds.Contains(player1.position) && trigger.bounds.Contains(player2.position))
         {
             mainCamera.moveSpeed = 2;
+            death.SetActive(true);
             invisibleWall.enabled = false;
         }
 	}
