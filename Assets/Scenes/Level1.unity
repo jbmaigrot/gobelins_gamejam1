@@ -952,7 +952,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1041145553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.7698345, y: -0.51805615, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 50, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1930271551}
@@ -1186,7 +1186,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1183309281}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.64, y: -5.1, z: 0}
+  m_LocalPosition: {x: 0.64, y: -5.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2081443255}
@@ -1307,7 +1307,6 @@ GameObject:
   - component: {fileID: 1241351159}
   - component: {fileID: 1241351158}
   - component: {fileID: 1241351161}
-  - component: {fileID: 1241351160}
   - component: {fileID: 1241351157}
   m_Layer: 9
   m_Name: Doug
@@ -1315,7 +1314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1241351155
 Transform:
   m_ObjectHideFlags: 0
@@ -1436,17 +1435,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1241351160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1241351154}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ace32d4b2e80944aa53f6acfe14b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1241351161
 Animator:
   serializedVersion: 3
@@ -2013,7 +2001,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1930271550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.7698345, y: 1.48, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1041145556}
@@ -2328,7 +2316,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2081443254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.6, y: -0.27, z: 0}
+  m_LocalPosition: {x: -6.6, y: 1.2, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_Children:
   - {fileID: 1183309282}
@@ -2395,7 +2383,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24261189, y: -0.39158535}
+  m_Offset: {x: 0.24261189, y: -0.5557847}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2406,7 +2394,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.9974575, y: 9.455751}
+  m_Size: {x: 5.9974575, y: 9.78415}
   m_EdgeRadius: 0
 --- !u!114 &2081443259
 MonoBehaviour:
@@ -2419,7 +2407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9c78310c2906b4094e10288c193e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  falling: 22
+  falling: 25
   jumping: 10
 --- !u!50 &2081443260
 Rigidbody2D:
@@ -2439,7 +2427,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &2081443261
 Animator:
@@ -2476,6 +2464,8 @@ MonoBehaviour:
   jumpForce: 30
   groundPoints:
   - {fileID: 1183309282}
+  - {fileID: 2129738945}
+  - {fileID: 1422282866}
   groundRadius: 0.2
   groundMask:
     serializedVersion: 2
