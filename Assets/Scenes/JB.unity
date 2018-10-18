@@ -1781,6 +1781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42781669627d9149ad3e6465f5cc707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
   dashForce: 100
   dashDuration: 1
   maxJumpTime: 0.5
@@ -2772,7 +2773,7 @@ SpriteRenderer:
   m_Size: {x: 6.63, y: 8.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &2081443257
