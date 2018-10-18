@@ -7,6 +7,7 @@ public class TutoEnd : MonoBehaviour {
     public CameraScroll mainCamera;
     public Transform player1;
     public Transform player2;
+    public Collider2D invisibleWall;
 
     private Collider2D trigger;
 
@@ -23,6 +24,7 @@ public class TutoEnd : MonoBehaviour {
         if (trigger.bounds.Contains(player1.position) && trigger.bounds.Contains(player2.position))
         {
             mainCamera.moveSpeed = 2;
+            invisibleWall.enabled = false;
         }
 	}
 }
