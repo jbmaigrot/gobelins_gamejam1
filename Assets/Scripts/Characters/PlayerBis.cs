@@ -8,6 +8,7 @@ public class PlayerBis : MonoBehaviour
     [SerializeField]
     private string playerName;
     protected bool isFacingRight;
+    protected bool canMove;
     private int health;
 
     //Other movements variables
@@ -45,6 +46,7 @@ public class PlayerBis : MonoBehaviour
         MyAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         isFacingRight = true;
+        canMove = true;
         health = 3;
 
         // Dash initialisation
@@ -71,7 +73,9 @@ public class PlayerBis : MonoBehaviour
         HandleLayers();
 
         v = rb.velocity;
-        Flip(horizontal);
+        if (canMove) {
+            Flip(horizontal);
+        }
         isGrounded = IsGrounded(rb);
 
         if(v.y < 0)
@@ -90,7 +94,10 @@ public class PlayerBis : MonoBehaviour
         }
         else
         {
-            v = moveAction.HandleMovement(horizontal, v);
+            if (canMove)
+            {
+                v = moveAction.HandleMovement(horizontal, v);
+            }
         }
         rb.velocity = v;
         if (jumpButton)
@@ -177,18 +184,15 @@ public class PlayerBis : MonoBehaviour
 
     }
 
-    public void DamagePlayer()
+    private IEnumerator DamagePlayer()
     {
         health--;
-        if (!IsDead())
-        {
-            //MyAnimator.SetTrigger("damage");
-        }
-        else
-        {
-            //MyAnimator.SetLayerWeight(1, 0);
-            //MyAnimator.SetTrigger("death");
-        }
+        canMove = false;
+        Time.timeScale = 0.5f;
+        MyAnimator.SetTrigger("Damage");
+        yield return new WaitForSeconds(0.7f);
+        MyAnimator.ResetTrigger("Damage");
+        Time.timeScale = 1f;
     }
 
     private bool IsDead()
@@ -196,9 +200,10 @@ public class PlayerBis : MonoBehaviour
         return health <= 0;
     }
 
-    public void RespawnPlayer(Vector2 respawnPosition)
+    private void RespawnPlayer(Vector2 respawnPosition)
     {
         rb.position = respawnPosition;
+        canMove = true;
     }
 
     //Changes the weight of animator layers
@@ -206,7 +211,7 @@ public class PlayerBis : MonoBehaviour
     {
         Debug.Log(isGrounded);
         //If the player is in the air, AirLayer is the main layer
-        if (isGrounded)
+        if (!isGrounded)
         {
             MyAnimator.SetLayerWeight(1, 1);
         }
@@ -218,14 +223,15 @@ public class PlayerBis : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Death"))
         {
             Vector2 resPoint = GameObject.Find("RespawnPoint").transform.position;
-            DamagePlayer();
+            StartCoroutine(DamagePlayer());
             if (!IsDead())
             {
+                yield return new WaitForSeconds(0.7f);
                 RespawnPlayer(resPoint);
             }
             else
