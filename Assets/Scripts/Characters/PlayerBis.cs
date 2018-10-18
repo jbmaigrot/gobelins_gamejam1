@@ -10,6 +10,7 @@ public class PlayerBis : MonoBehaviour
     protected bool isFacingRight;
     protected bool canMove;
     private int health;
+    private Shake shake;
 
     //Other movements variables
     public Rigidbody2D rb { get; set; }
@@ -48,6 +49,7 @@ public class PlayerBis : MonoBehaviour
         isFacingRight = true;
         canMove = true;
         health = 3;
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
         // Dash initialisation
         dashAction = new Dash
@@ -73,12 +75,13 @@ public class PlayerBis : MonoBehaviour
         HandleLayers();
 
         v = rb.velocity;
-        if (canMove) {
+        if (canMove)
+        {
             Flip(horizontal);
         }
         isGrounded = IsGrounded(rb);
 
-        if(v.y < 0)
+        if (v.y < 0)
         {
             MyAnimator.SetBool("Land", true);
         }
@@ -125,8 +128,6 @@ public class PlayerBis : MonoBehaviour
     {
         horizontal = Input.GetAxis(playerName + "Horizontal");
         dashButton = Input.GetButtonDown(playerName + "Dash");
-        jumpButton = Input.GetButtonDown(playerName + "Jump");
-
     }
 
     //Makes the player turn the other way
@@ -169,7 +170,7 @@ public class PlayerBis : MonoBehaviour
 
                 for (int i = 0; i < colliders.Length; i++)
                 {
-                    if(colliders[i].gameObject != gameObject && (colliders[i].gameObject.CompareTag("Floor") || ((this.gameObject.layer == 9 && colliders[i].gameObject.layer == 8) || (this.gameObject.layer == 8 && colliders[i].gameObject.layer == 9))))
+                    if (colliders[i].gameObject != gameObject && (colliders[i].gameObject.CompareTag("Floor") || ((this.gameObject.layer == 9 && colliders[i].gameObject.layer == 8) || (this.gameObject.layer == 8 && colliders[i].gameObject.layer == 9))))
                     {
                         //If the colliders collide with something else than the player, then the players is grounded
                         canJump = true;
@@ -187,6 +188,8 @@ public class PlayerBis : MonoBehaviour
     private IEnumerator DamagePlayer()
     {
         health--;
+        //shake.CamShake();
+        rb.AddForce(new Vector2(5, 5), ForceMode2D.Impulse);
         canMove = false;
         Time.timeScale = 0.5f;
         MyAnimator.SetTrigger("Damage");
