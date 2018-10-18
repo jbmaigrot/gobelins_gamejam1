@@ -10,6 +10,7 @@ public class PlayerBis : MonoBehaviour
     protected bool isFacingRight;
     protected bool canMove;
     private int health;
+    private Shake shake;
 
     //Other movements variables
     public Rigidbody2D rb { get; set; }
@@ -48,6 +49,7 @@ public class PlayerBis : MonoBehaviour
         isFacingRight = true;
         canMove = true;
         health = 3;
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
         // Dash initialisation
         dashAction = new Dash
@@ -187,6 +189,7 @@ public class PlayerBis : MonoBehaviour
     private IEnumerator DamagePlayer()
     {
         health--;
+        shake.CamShake();
         canMove = false;
         Time.timeScale = 0.5f;
         MyAnimator.SetTrigger("Damage");
