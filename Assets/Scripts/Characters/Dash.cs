@@ -7,6 +7,7 @@ public class Dash {
     
     private Vector2 direction;
     private float dashCurrentTime;
+    private Animator myAnimator;
 
     private bool isDashing;
     private float dashForce;
@@ -22,6 +23,8 @@ public class Dash {
                 IsDashing = false;
                 // Stop velocity
                 v = Vector2.zero;
+
+                myAnimator.ResetTrigger("Dash");
             }
             else
             {
@@ -33,9 +36,11 @@ public class Dash {
         return v;
     }
 
-    public void StartDash(float vertical, bool isFacingRight)
+    public void StartDash(float vertical, bool isFacingRight, Animator MyAnimator)
     {
         isDashing = true;
+        myAnimator = MyAnimator;
+        myAnimator.SetTrigger("Dash");
         // Direction of the dash
         if (isFacingRight)
         {

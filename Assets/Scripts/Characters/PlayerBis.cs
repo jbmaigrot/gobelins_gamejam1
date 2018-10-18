@@ -32,7 +32,7 @@ public class PlayerBis : MonoBehaviour
     [SerializeField]
     private LayerMask groundMask;
     private bool isGrounded;
-    private bool jump;
+    private bool canJump;
 
 
     //Inputs
@@ -68,10 +68,16 @@ public class PlayerBis : MonoBehaviour
     private void FixedUpdate()
     {
         GetInputs();
+        HandleLayers();
 
         v = rb.velocity;
         Flip(horizontal);
         isGrounded = IsGrounded(rb);
+
+        if(v.y < 0)
+        {
+            MyAnimator.SetBool("Land", true);
+        }
 
         // Dash
         if (dashAction.IsDashing)
@@ -80,7 +86,7 @@ public class PlayerBis : MonoBehaviour
         }
         else if (dashButton)
         {
-            dashAction.StartDash(0, isFacingRight);
+            dashAction.StartDash(0, isFacingRight, MyAnimator);
         }
         else
         {
@@ -121,11 +127,12 @@ public class PlayerBis : MonoBehaviour
     private void Jump()
     {
         // Player is not grounded when he jump
-        if (isGrounded && jump)
+        if (isGrounded && canJump)
         {
-            jump = false;
-            //rb.AddForce(new Vector2(10,10));
+            canJump = false;
+            isGrounded = false;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            MyAnimator.SetTrigger("Jump");
         }
     }
 
@@ -144,7 +151,9 @@ public class PlayerBis : MonoBehaviour
                     if(colliders[i].gameObject != gameObject && (colliders[i].gameObject.CompareTag("Floor") || ((this.gameObject.layer == 9 && colliders[i].gameObject.layer == 8) || (this.gameObject.layer == 8 && colliders[i].gameObject.layer == 9))))
                     {
                         //If the colliders collide with something else than the player, then the players is grounded
-                        jump = true;
+                        canJump = true;
+                        MyAnimator.ResetTrigger("Jump");
+                        MyAnimator.SetBool("Land", false);
                         return true;
                     }
                 }
@@ -176,5 +185,39 @@ public class PlayerBis : MonoBehaviour
     public void RespawnPlayer(Vector2 respawnPosition)
     {
         rb.position = respawnPosition;
+    }
+
+    //Changes the weight of animator layers
+    private void HandleLayers()
+    {
+        Debug.Log(isGrounded);
+        //If the player is in the air, AirLayer is the main layer
+        if (isGrounded)
+        {
+            MyAnimator.SetLayerWeight(1, 1);
+        }
+
+        //If the player is on the ground, the ground layer is the main layer
+        else
+        {
+            MyAnimator.SetLayerWeight(1, 0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Death"))
+        {
+            Vector2 resPoint = GameObject.Find("RespawnPoint").transform.position;
+            DamagePlayer();
+            if (!IsDead())
+            {
+                RespawnPlayer(resPoint);
+            }
+            else
+            {
+                //écran de fin
+            }
+        }
     }
 }

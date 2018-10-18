@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         }
         else if(dashButton)
         {
-            dashAction.StartDash(0, isFacingRight);
+            dashAction.StartDash(0, isFacingRight, MyAnimator);
         }
         else if(jumpButton)
         {
@@ -133,22 +133,6 @@ public class Player : MonoBehaviour
 
     //Changes the weight of animator layers
     private void HandleLayers()
-    {
-        //If the player is in the air, AirLayer is the main layer
-        if (!jumpAction.IsGrounded())
-        {
-            MyAnimator.SetLayerWeight(1, 1);
-        }
-
-        //If the player is on the ground, the ground layer is the main layer
-        else
-        {
-            MyAnimator.SetLayerWeight(1, 0);
-        }
-    }
-
-    //Changes the weight of animator layers
-    private void DamagePlayer()
     {
         //If the player is in the air, AirLayer is the main layer
         if (!jumpAction.IsGrounded())

@@ -6,8 +6,8 @@ public class MovePlayer
 {
     private Animator MyAnimator;
 
-   [SerializeField]
-    protected float movementSpeed = 10;
+    [SerializeField]
+    protected float movementSpeed = 5;
     [SerializeField]
     protected float maxSpeed = 40;
 
