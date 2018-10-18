@@ -22,7 +22,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: DougHorizontal
+    m_Name: OneHorizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -38,7 +38,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: DougJump
+    m_Name: OneJump
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -46,7 +46,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
-    dead: 0.001
+    dead: 0.2
     sensitivity: 1000
     snap: 1
     invert: 0
@@ -54,7 +54,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: DougDash
+    m_Name: OneDash
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -62,7 +62,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: f
     gravity: 1000
-    dead: 0.001
+    dead: 0.2
     sensitivity: 1000
     snap: 1
     invert: 0
@@ -70,7 +70,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: DougLT
+    m_Name: OneLT
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -86,7 +86,7 @@ InputManager:
     axis: 2
     joyNum: 1
   - serializedVersion: 3
-    m_Name: DougRT
+    m_Name: OneRT
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -102,7 +102,7 @@ InputManager:
     axis: 2
     joyNum: 1
   - serializedVersion: 3
-    m_Name: BongHorizontal
+    m_Name: TwoHorizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: left
@@ -110,7 +110,7 @@ InputManager:
     altNegativeButton: a
     altPositiveButton: d
     gravity: 3
-    dead: 0.001
+    dead: 0.2
     sensitivity: 3
     snap: 1
     invert: 0
@@ -118,7 +118,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: BongJump
+    m_Name: TwoJump
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -126,7 +126,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
-    dead: 0.001
+    dead: 0.2
     sensitivity: 1000
     snap: 1
     invert: 0
@@ -134,7 +134,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: BongDash
+    m_Name: TwoDash
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -142,7 +142,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
-    dead: 0.001
+    dead: 0.2
     sensitivity: 1000
     snap: 1
     invert: 0
@@ -150,7 +150,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: BongLT
+    m_Name: TwoLT
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -166,7 +166,7 @@ InputManager:
     axis: 2
     joyNum: 2
   - serializedVersion: 3
-    m_Name: BongRT
+    m_Name: TwoRT
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
