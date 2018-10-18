@@ -1885,7 +1885,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 692876260}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d98f89d1137fdc44ea0ae278c357eea2, type: 3}
   m_Name: 
@@ -2010,7 +2010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &757635473
 Transform:
   m_ObjectHideFlags: 0
@@ -4404,7 +4404,6 @@ GameObject:
   - component: {fileID: 1241351159}
   - component: {fileID: 1241351158}
   - component: {fileID: 1241351161}
-  - component: {fileID: 1241351160}
   - component: {fileID: 1241351157}
   m_Layer: 9
   m_Name: Doug
@@ -4533,29 +4532,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1241351160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1241351154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ace32d4b2e80944aa53f6acfe14b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerName: Two
-  dashForce: 30
-  dashDuration: 0.2
-  jumpForce: 30
-  groundPoints:
-  - {fileID: 1961419196}
-  - {fileID: 1476740967}
-  - {fileID: 1329214769}
-  groundRadius: 0.2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!95 &1241351161
 Animator:
   serializedVersion: 3
@@ -7842,8 +7818,8 @@ GameObject:
   - component: {fileID: 2081443257}
   - component: {fileID: 2081443260}
   - component: {fileID: 2081443261}
-  - component: {fileID: 2081443262}
   - component: {fileID: 2081443259}
+  - component: {fileID: 2081443258}
   m_Layer: 8
   m_Name: Bong
   m_TagString: Untagged
@@ -7938,6 +7914,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.226136, y: 8.938408}
   m_EdgeRadius: 0
+--- !u!114 &2081443258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2081443254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdaf1b1f2edc8e64799440e8a0c30ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: One
+  dashForce: 30
+  dashDuration: 0.2
+  jumpForce: 25
+  groundPoints:
+  - {fileID: 2129738945}
+  - {fileID: 1183309282}
+  - {fileID: 1422282866}
+  groundRadius: 0.2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &2081443259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7989,29 +7988,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2081443262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2081443254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ace32d4b2e80944aa53f6acfe14b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerName: One
-  dashForce: 30
-  dashDuration: 0.2
-  jumpForce: 30
-  groundPoints:
-  - {fileID: 1183309282}
-  - {fileID: 2129738945}
-  - {fileID: 1422282866}
-  groundRadius: 0.2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &2129738944
 GameObject:
   m_ObjectHideFlags: 0
