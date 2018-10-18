@@ -153,13 +153,13 @@ public class PlayerBis : MonoBehaviour
         return false;
 
     }
-    private void DamagePlayer()
+
+    public void DamagePlayer()
     {
         health--;
         if (!IsDead())
         {
             //MyAnimator.SetTrigger("damage");
-            RespawnPlayer();
         }
         else
         {
@@ -173,7 +173,8 @@ public class PlayerBis : MonoBehaviour
         return health <= 0;
     }
 
-    private void RespawnPlayer()
+    public void RespawnPlayer(Vector2 respawnPosition)
     {
+        rb.position = respawnPosition;
     }
 }
