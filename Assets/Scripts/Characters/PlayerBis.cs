@@ -128,6 +128,7 @@ public class PlayerBis : MonoBehaviour
     {
         horizontal = Input.GetAxis(playerName + "Horizontal");
         dashButton = Input.GetButtonDown(playerName + "Dash");
+        jumpButton = Input.GetButtonDown(playerName + "Jump");
     }
 
     //Makes the player turn the other way
