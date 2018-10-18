@@ -6,7 +6,7 @@ public class CameraScroll : MonoBehaviour {
     [SerializeField]
     private Transform[] pathPoints;
     [SerializeField]
-    private float moveSpeed;
+    public float moveSpeed;
 
     private int currentPoint;
 
