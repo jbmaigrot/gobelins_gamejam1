@@ -189,7 +189,6 @@ public class PlayerBis : MonoBehaviour
     {
         health--;
         //shake.CamShake();
-        rb.AddForce(new Vector2(5, 5), ForceMode2D.Impulse);
         canMove = false;
         Time.timeScale = 0.5f;
         MyAnimator.SetTrigger("Damage");
