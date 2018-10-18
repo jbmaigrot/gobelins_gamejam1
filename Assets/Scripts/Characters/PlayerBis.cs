@@ -49,7 +49,7 @@ public class PlayerBis : MonoBehaviour
         isFacingRight = true;
         canMove = true;
         health = 3;
-        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+        //shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
         // Dash initialisation
         dashAction = new Dash
@@ -128,6 +128,7 @@ public class PlayerBis : MonoBehaviour
     {
         horizontal = Input.GetAxis(playerName + "Horizontal");
         dashButton = Input.GetButtonDown(playerName + "Dash");
+        jumpButton = Input.GetButtonDown(playerName + "Jump");
     }
 
     //Makes the player turn the other way
@@ -189,7 +190,6 @@ public class PlayerBis : MonoBehaviour
     {
         health--;
         //shake.CamShake();
-        rb.AddForce(new Vector2(5, 5), ForceMode2D.Impulse);
         canMove = false;
         Time.timeScale = 0.5f;
         MyAnimator.SetTrigger("Damage");
