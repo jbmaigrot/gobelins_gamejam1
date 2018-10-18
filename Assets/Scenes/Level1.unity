@@ -1156,7 +1156,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1145500335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.24, y: 6.48, z: 0}
+  m_LocalPosition: {x: 6.43, y: 6.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 141210934}
@@ -1390,6 +1390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   falling: 22
   jumping: 10
+  playerName: 
 --- !u!61 &1241351158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1904,6 +1905,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1687895947817836, guid: 136f863345b82e6448701285af5f1214, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 136f863345b82e6448701285af5f1214, type: 2}
   m_IsPrefabAsset: 0
@@ -2407,8 +2412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9c78310c2906b4094e10288c193e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  falling: 25
-  jumping: 10
+  falling: 2.5
+  jumping: 2
+  playerName: One
 --- !u!50 &2081443260
 Rigidbody2D:
   serializedVersion: 4
@@ -2423,7 +2429,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 100
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2461,7 +2467,7 @@ MonoBehaviour:
   playerName: One
   dashForce: 30
   dashDuration: 0.2
-  jumpForce: 30
+  jumpForce: 8
   groundPoints:
   - {fileID: 1183309282}
   - {fileID: 2129738945}
