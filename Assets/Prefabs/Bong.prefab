@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1687759303849358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.09, y: -0.12, z: 0}
+  m_LocalPosition: {x: -18.9, y: -0.12, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_Children:
   - {fileID: 4688957154907340}
@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9c78310c2906b4094e10288c193e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  falling: 22
-  jumping: 10
+  falling: 20
+  jumping: 11
   playerName: One
 --- !u!114 &114763315282239100
 MonoBehaviour:
@@ -224,8 +224,8 @@ MonoBehaviour:
   blackController: {fileID: 9100000, guid: 7750ee8639360b1418238d8031d861e9, type: 2}
   playerName: One
   dashForce: 30
-  dashDuration: 0.2
-  jumpForce: 25
+  dashDuration: 0.15
+  jumpForce: 27
   groundPoints:
   - {fileID: 4520083773129012}
   - {fileID: 4688957154907340}
