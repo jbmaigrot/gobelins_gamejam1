@@ -3,47 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jump {
-
-    private bool grounded = false;
-    private bool jump = false;
+    private bool isJumping = false;
+    private bool isLanding = false;
     private float jumpTime = 0;
     private float maxJumpTime;
     private float jumpSpeed;
-    private int layer;
     private Transform player;
     private Transform groundCheck;
     private AnimationCurve jumpCurve = AnimationCurve.Linear(0, 0, 1, 0);
 
-    // Update is called once per frame
-    public Vector2 HandleJump (Vector2 v, bool jumpButton) {
-        /*if (player.gameObject.layer == 9)
+    public Vector2 QuickJump(Vector2 v)
+    {
+        isJumping = true;
+        jumpTime += Time.deltaTime;
+        v.y = jumpSpeed;
+        return v;
+    }
+
+    public Vector2 LongJump(Vector2 v)
+    {
+        v.y = jumpSpeed * JumpCurve.Evaluate(jumpTime / maxJumpTime);
+        jumpTime += Time.deltaTime;
+        return v;
+    }
+
+    public void Land()
+    {
+        if (isJumping && jumpTime < maxJumpTime)
         {
-            layer = 8;
-        }
-        else
-        {
-            layer = 9;
-        }*/
-        grounded = Physics2D.Linecast(player.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Linecast(player.position, groundCheck.position, player.gameObject.layer);
-        if (jumpButton && grounded)
-        {
-            jump = true;
-            jumpTime += Time.deltaTime;
-            v.y = jumpSpeed;
-        }
-        else if (jumpButton && jump && jumpTime < maxJumpTime)
-        {
-            v.y = jumpSpeed * JumpCurve.Evaluate(jumpTime / maxJumpTime);
-            jumpTime += Time.deltaTime;
-        }
-        else
-        {
-            jump = false;
+            isJumping = false;
+            isLanding = true;
             jumpTime = 0;
         }
+    }
 
-        Debug.Log("Speed : "  + v.y);
-        return v;
+    public bool IsJumping()
+    {
+        return isJumping && jumpTime < maxJumpTime;
+    }
+
+    public bool IsGrounded()
+    {
+        return Physics2D.Linecast(player.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.Linecast(player.position, groundCheck.position, player.gameObject.layer);
     }
 
     //Getters and setters

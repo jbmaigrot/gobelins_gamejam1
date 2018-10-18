@@ -1732,7 +1732,7 @@ GameObject:
   - component: {fileID: 1241351158}
   - component: {fileID: 1241351160}
   m_Layer: 9
-  m_Name: Doug
+  m_Name: Bong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1745,7 +1745,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1241351154}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -15.22, y: -0.46, z: 0}
+  m_LocalPosition: {x: -14.22, y: -0.46, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 195895645}
@@ -1809,6 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42781669627d9149ad3e6465f5cc707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
   dashForce: 100
   dashDuration: 1
   maxJumpTime: 0.5
@@ -2612,7 +2613,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051302827}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 10.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 834205472}
@@ -2713,7 +2714,7 @@ GameObject:
   - component: {fileID: 2081443259}
   - component: {fileID: 2081443261}
   m_Layer: 8
-  m_Name: Bong
+  m_Name: Doug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2815,17 +2816,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42781669627d9149ad3e6465f5cc707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
   dashForce: 0
   dashDuration: 0
   maxJumpTime: 0.5
-  jumpSpeed: 61
+  jumpSpeed: 7
   groundCheck: {fileID: 1183309282}
   jumpCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
+      time: 0.020572662
+      value: -0.0004196167
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2833,8 +2835,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 0
+      time: 0.14066796
+      value: 0.012674812
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2888,7 +2890,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &2081443261
 Animator:
   serializedVersion: 3

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Animator MyAnimator { get; private set; }
+    [SerializeField]
+    private string playerName;
+    protected bool isFacingRight;
 
     //Other movements variables
     public Rigidbody2D rb { get; set; }
@@ -30,15 +33,11 @@ public class Player : MonoBehaviour
     bool dashButton;
     bool jumpButton;
 
-    //public AnimationCurve curveX = AnimationCurve.Linear(0, 1, 1, 0);
-
-    [SerializeField]
-    private string name;
-
     public void Start()
     {
         MyAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        isFacingRight = true;
 
         // Dash initialisation
         dashAction = new Dash
@@ -59,7 +58,7 @@ public class Player : MonoBehaviour
 
         // Move initialisation
         moveAction = new MovePlayer();
-        moveAction.Initialize(rb, MyAnimator);
+        moveAction.Initialize(MyAnimator);
     }
 
     // Update is called once per frame
@@ -71,8 +70,10 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         GetInputs();
+        HandleLayers();
 
         v = rb.velocity;
+        Flip(horizontal);
 
         // Dash
         if (dashAction.IsDashing)
@@ -81,23 +82,65 @@ public class Player : MonoBehaviour
             v = dashAction.Dashing(v);
         }
         else if(dashButton)
-        {
-            
+        {           
             dashAction.StartDash(horizontal, 0);
         }
-        else
+        else if(jumpButton )
         {
-            v = jumpAction.HandleJump(v, jumpButton);
-            v = moveAction.HandleSingleMovement(horizontal, v);
+            v = jumpAction.QuickJump(v);
         }
+        else if (jumpButton && jumpAction.IsJumping())
+        {
+            v = jumpAction.LongJump(v);
+
+        }
+        else if (rb.velocity.y < 0)
+        {
+             MyAnimator.SetBool("Land", true);
+            jumpAction.Land();
+        }
+        else if (!jumpAction.IsJumping())
+            v = moveAction.HandleMovement(horizontal, v);
         rb.velocity = v;
     }
 
     private void GetInputs()
     {
-        horizontal = Input.GetAxis(name + "Horizontal");
-        dashButton = Input.GetButtonDown(name + "Dash");
-        jumpButton = Input.GetButtonDown(name + "Jump");
+        horizontal = Input.GetAxis(playerName + "Horizontal");
+        //dashButton = Input.GetButtonDown(playerName + "Dash");
+        jumpButton = Input.GetButtonDown(playerName + "Jump");
 
+    }
+
+    //Makes the player turn the other way
+    public void Flip(float horizontal)
+    {
+        //If needed, the player faces the other direction
+        if ((horizontal > 0 && !isFacingRight || horizontal < 0 && isFacingRight))
+        {
+            ChangeDirection();
+        }
+    }
+
+    private void ChangeDirection()
+    {
+        isFacingRight = !isFacingRight;
+        rb.transform.localScale = new Vector3(rb.transform.localScale.x * -1, rb.transform.localScale.y, rb.transform.localScale.z);
+    }
+
+    //Changes the weight of animator layers
+    private void HandleLayers()
+    {
+        //If the player is in the air, AirLayer is the main layer
+        if (!jumpAction.IsGrounded())
+        {
+            MyAnimator.SetLayerWeight(1, 1);
+        }
+
+        //If the player is on the ground, the ground layer is the main layer
+        else
+        {
+            MyAnimator.SetLayerWeight(1, 0);
+        }
     }
 }

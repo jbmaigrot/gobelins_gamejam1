@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 380a8f0ae391f304a885fbfc02509ab0
+guid: 8e3c5100e755a6d4188f26882edfe792
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BongJump_0
-    21300002: BongJump_1
-    21300004: BongJump_2
-    21300006: BongJump_3
-    21300008: BongJump_4
-    21300010: BongJump_5
-    21300012: BongJump_6
+    21300000: Bong_Jump_0
+    21300002: Bong_Jump_1
+    21300004: Bong_Jump_2
+    21300006: Bong_Jump_3
+    21300008: Bong_Jump_4
+    21300010: Bong_Jump_5
+    21300012: Bong_Jump_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -91,72 +91,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BongJump_0
+      name: Bong_Jump_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 11
-        width: 151
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfcf0d2de7d24ae44a09d62847653da5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BongJump_1
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 12
+        x: 24
+        y: 13
         width: 152
-        height: 168
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d50d48d56330f3c45b9e4cc4bb3cbdc0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BongJump_2
-      rect:
-        serializedVersion: 2
-        x: 427
-        y: 14
-        width: 141
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b52d02d0dae749343bf7aea504528add
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BongJump_3
-      rect:
-        serializedVersion: 2
-        x: 638
-        y: 14
-        width: 140
         height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -165,19 +105,79 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fc8cd715564bdb4c87914bedb004b89
+      spriteID: e78879ba34c7a7445896e5bef7cf3df2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BongJump_4
+      name: Bong_Jump_1
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 12
+        width: 152
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a137ee23b54643408fad56f24b75d95
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bong_Jump_2
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 16
+        width: 152
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a973bcc5c4506478e0ebe7b405bf5e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bong_Jump_3
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 16
+        width: 152
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f1cef9fb1bfac41a934b79440d5404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bong_Jump_4
       rect:
         serializedVersion: 2
         x: 852
-        y: 14
-        width: 140
-        height: 182
+        y: 13
+        width: 152
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e3a3e8f068fcd948a0f8adf90d2e6a2
+      spriteID: d03cb3df000721240a6e9323948e6715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BongJump_5
+      name: Bong_Jump_5
       rect:
         serializedVersion: 2
         x: 1055
-        y: 12
+        y: 13
         width: 152
-        height: 168
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,19 +205,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79cb9e61fd7044a42bff74034dc821e1
+      spriteID: 4fb56fe8ab5fad74585dfddbd51e9c0d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BongJump_6
+      name: Bong_Jump_6
       rect:
         serializedVersion: 2
         x: 1249
         y: 12
-        width: 144
-        height: 171
+        width: 152
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,7 +225,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 579bd12c3054ac047919dd235c3067f5
+      spriteID: 979889ce7027779499dd42d69f512e76
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8b6c0c9117557424ca2590859c0070e6
+    spriteID: a4f67ed8655bba3428daadc94f07c6dc
     vertices: []
     indices: 
     edges: []
