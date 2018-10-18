@@ -6,6 +6,8 @@ public class BetterJump : MonoBehaviour {
 
     public float falling = 2.5f;
     public float jumping = 2f;
+    [SerializeField]
+    private string playerName;
 
     private Rigidbody2D body;
     // Use this for initialization
@@ -18,13 +20,13 @@ public class BetterJump : MonoBehaviour {
     void FixedUpdate()
     {
         //falling
-        if (body.velocity.y < 0)
+        if (body.velocity.y < -0.1f)
         {
-            body.gravityScale = falling;
+            body.gravityScale = falling*2;
         }
-        else if (body.velocity.y > 0 && !Input.GetButton("Jump"))
+        else if (body.velocity.y > 0.1 && !Input.GetButton(playerName + "Jump"))
         {
-            body.gravityScale = jumping;
+            body.gravityScale = jumping*2;
         }
         else
         {
