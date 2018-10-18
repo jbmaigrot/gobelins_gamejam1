@@ -33,11 +33,16 @@ public class Dash {
         return v;
     }
 
-    public void StartDash(float horizontal, float vertical)
+    public void StartDash(float vertical, bool isFacingRight)
     {
         isDashing = true;
         // Direction of the dash
-        direction.x = horizontal;
+        if (isFacingRight)
+        {
+            direction.x = 1;
+        }
+        else
+            direction.x = -1;
         direction.y = vertical;
     }
 
