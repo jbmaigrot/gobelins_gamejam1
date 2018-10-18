@@ -78,7 +78,7 @@ public class PlayerBis : MonoBehaviour
         }
         else if (dashButton)
         {
-            dashAction.StartDash(horizontal, 0);
+            dashAction.StartDash(0, isFacingRight);
         }
         else
         {
