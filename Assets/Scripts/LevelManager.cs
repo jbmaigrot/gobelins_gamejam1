@@ -38,6 +38,6 @@ public class LevelManager : MonoBehaviour {
             two.SetActive(true);
         }
 
-
     }
+
 }
