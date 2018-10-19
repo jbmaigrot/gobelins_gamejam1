@@ -9,6 +9,7 @@ public class TutoEnd : MonoBehaviour {
     public Transform player2;
     public GameObject death;
     public Collider2D invisibleWall;
+    public GameObject ui;
 
     private Collider2D trigger;
 
@@ -25,6 +26,9 @@ public class TutoEnd : MonoBehaviour {
             mainCamera.moveSpeed = 2;
             death.SetActive(true);
             invisibleWall.enabled = false;
+  
+            ui.SetActive(true);
+
         }
 	}
 }
