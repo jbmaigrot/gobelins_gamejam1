@@ -7,6 +7,13 @@ public class PlayerBis : MonoBehaviour
 {
     public Animator MyAnimator { get; private set; }
 
+    //Dash variables
+    bool canDash = true;
+    private Vector2 direction;
+    private float dashCurrentTime;
+    private bool isDashing;
+
+
     [SerializeField]
     private RuntimeAnimatorController whiteController;
 
@@ -106,13 +113,21 @@ public class PlayerBis : MonoBehaviour
         }
 
         // Dash
-        if (dashAction.IsDashing)
+        if (isDashing)
         {
-            v = dashAction.Dashing(v);
+            v = Dashing(v);
         }
-        else if (dashButton)
+        else if (dashButton && canDash )
         {
-            dashAction.StartDash(0, isFacingRight, MyAnimator);
+            StartDash(0);
+            if(this.gameObject.name == "Doug")
+            {
+                AudioManager.instance.Play("DougDash");
+            }
+            else if (this.gameObject.name == "Bong")
+            {
+                AudioManager.instance.Play("BongDash");
+            }
             StartCoroutine("DashEffect");
         }
         else
@@ -127,7 +142,6 @@ public class PlayerBis : MonoBehaviour
         {
             Jump();
             StartCoroutine(JumpEffect(horizontal));
-            AudioManager.instance.Play("Bark");
         }
 
         if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1) && switchOn)
@@ -198,6 +212,7 @@ public class PlayerBis : MonoBehaviour
                         if (MyAnimator.GetBool("Land"))
                         {
                             MyAnimator.SetBool("Land", false);
+                            AudioManager.instance.Play("Land");
                             StartCoroutine("LandEffect");
                         }
                         return true;
@@ -334,5 +349,50 @@ public class PlayerBis : MonoBehaviour
         temporaryEffect.transform.SetParent(transform);
         yield return new WaitForSeconds(0.2f);
         Destroy(temporaryEffect);
+    }
+
+    private void StartDash(float vertical)
+    {
+        isDashing = true;
+        MyAnimator.SetTrigger("Dash");
+        // Direction of the dash
+        if (isFacingRight)
+        {
+            direction.x = 1;
+        }
+        else
+            direction.x = -1;
+        direction.y = vertical;
+    }
+
+    private Vector2 Dashing(Vector2 v)
+    {
+        // End of dash
+        if (dashCurrentTime >= dashDuration)
+        {
+            // Reset the dash settings
+            dashCurrentTime = 0;
+            isDashing = false;
+            canDash = false;
+            StartCoroutine(ResetDash());
+            // Stop velocity
+            v = Vector2.zero;
+
+            MyAnimator.ResetTrigger("Dash");
+        }
+        else
+        {
+            // Continue the dash
+            dashCurrentTime += Time.deltaTime;
+            v.x = dashForce * direction.x;
+            v.y = dashForce * direction.y;
+        }
+        return v;
+    }
+
+    private IEnumerator ResetDash()
+    {
+        yield return new WaitForSeconds(0.7f);
+        canDash = true;
     }
 }

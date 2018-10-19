@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dash {
-    
+
+    bool canDash = true;
     private Vector2 direction;
     private float dashCurrentTime;
     private Animator myAnimator;
@@ -21,6 +22,7 @@ public class Dash {
                 // Reset the dash settings
                 dashCurrentTime = 0;
                 IsDashing = false;
+                canDash = false;
                 // Stop velocity
                 v = Vector2.zero;
 
@@ -38,17 +40,20 @@ public class Dash {
 
     public void StartDash(float vertical, bool isFacingRight, Animator MyAnimator)
     {
-        isDashing = true;
-        myAnimator = MyAnimator;
-        myAnimator.SetTrigger("Dash");
-        // Direction of the dash
-        if (isFacingRight)
+        if (canDash)
         {
-            direction.x = 1;
+            isDashing = true;
+            myAnimator = MyAnimator;
+            myAnimator.SetTrigger("Dash");
+            // Direction of the dash
+            if (isFacingRight)
+            {
+                direction.x = 1;
+            }
+            else
+                direction.x = -1;
+            direction.y = vertical;
         }
-        else
-            direction.x = -1;
-        direction.y = vertical;
     }
 
     /*
