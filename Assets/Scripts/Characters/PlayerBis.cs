@@ -132,7 +132,7 @@ public class PlayerBis : MonoBehaviour
             }
             else if (this.gameObject.name == "Bong")
             {
-                //AudioManager.instance.Play("BongDash");
+                AudioManager.instance.Play("BongDash");
             }
             StartCoroutine("DashEffect");
         }
@@ -242,7 +242,7 @@ public class PlayerBis : MonoBehaviour
     private IEnumerator DamagePlayer()
     {
         health--;
-        AudioManager.instance.Play(gameObject.name + "Damage");
+        AudioManager.instance.Play("Damage");
         UIManager.UImanager.TakeDamageUI(health, this.name);
         //shake.CamShake();
         if (this.playerName == "One")
@@ -324,6 +324,7 @@ public class PlayerBis : MonoBehaviour
         }
         else
         {
+            AudioManager.instance.Play("Winning");
             win.SetActive(true);
         }
 

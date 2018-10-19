@@ -9,8 +9,8 @@ public class Menu : MonoBehaviour {
     public Button quit;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        AudioManager.instance.Play("MainTheme");
+    }
 	
 	// Update is called once per frame
 	void Update () {

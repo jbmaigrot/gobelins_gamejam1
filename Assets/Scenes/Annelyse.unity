@@ -4322,6 +4322,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191988f91dba9d344a84ed1da298f1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  win: {fileID: 0}
+  lose: {fileID: 0}
+  one: {fileID: 0}
+  two: {fileID: 0}
   whiteController: {fileID: 9100000, guid: 31374f617e0251245bc0762d57b43d47, type: 2}
   blackController: {fileID: 9100000, guid: cb9ff4cfe4ad05b47a2c25bbcb7ec4ef, type: 2}
   switchEffectWhitePrefab: {fileID: 1923908761725466, guid: cd3b21f01b0a9b0428b5278dd8fc6704,
@@ -7468,6 +7472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191988f91dba9d344a84ed1da298f1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  win: {fileID: 0}
+  lose: {fileID: 0}
+  one: {fileID: 0}
+  two: {fileID: 0}
   whiteController: {fileID: 9100000, guid: fac36ed6299353949a8d2d51530f7895, type: 2}
   blackController: {fileID: 9100000, guid: 7750ee8639360b1418238d8031d861e9, type: 2}
   switchEffectWhitePrefab: {fileID: 1923908761725466, guid: cd3b21f01b0a9b0428b5278dd8fc6704,
