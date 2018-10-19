@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class PlayerBis : MonoBehaviour
 {
@@ -126,6 +127,8 @@ public class PlayerBis : MonoBehaviour
         {
             Jump();
             StartCoroutine(JumpEffect(horizontal));
+            //GamePad.SetVibration(PlayerIndex.Two, 1, 1);
+            //GamePad.SetVibration(PlayerIndex.One, 1, 1);
         }
 
         if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1) && switchOn)
