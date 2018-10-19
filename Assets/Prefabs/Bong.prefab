@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 50321803510662532}
   - component: {fileID: 95019809438328374}
   - component: {fileID: 114462949792245300}
-  - component: {fileID: 114763315282239100}
+  - component: {fileID: 114102378518517022}
   m_Layer: 8
   m_Name: Bong
   m_TagString: Untagged
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1133970041866908}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 2.94, y: -5.1, z: 0}
+  m_LocalPosition: {x: 2.94, y: -6.1, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children: []
   m_Father: {fileID: 4563067525561442}
@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648511541009778}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -2.27, y: -5.1, z: 0}
+  m_LocalPosition: {x: -2.9, y: -6.2, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children: []
   m_Father: {fileID: 4563067525561442}
@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1687759303849358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.9, y: -0.12, z: 0}
+  m_LocalPosition: {x: -18.9, y: -0.23, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_Children:
   - {fileID: 4688957154907340}
@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314669174421280}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.64, y: -5.1, z: 0}
+  m_LocalPosition: {x: 0.64, y: -6.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4563067525561442}
@@ -195,6 +195,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114102378518517022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1687759303849358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c41ea50bb21f84b8bdfc4128cfb0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whiteController: {fileID: 9100000, guid: 7750ee8639360b1418238d8031d861e9, type: 2}
+  blackController: {fileID: 9100000, guid: fac36ed6299353949a8d2d51530f7895, type: 2}
+  switchEffectWhitePrefab: {fileID: 1923908761725466, guid: cd3b21f01b0a9b0428b5278dd8fc6704,
+    type: 2}
+  switchEffectBlackPrefab: {fileID: 1942862577677904, guid: 1fe49c6632077d2428793a645e110415,
+    type: 2}
+  dashPrefab: {fileID: 1413544597668764, guid: 77918e65c80c72e4094017c4104e25ea, type: 2}
+  landPrefab: {fileID: 1276689865808954, guid: 337ddc8892f8c7a43a137165f238106a, type: 2}
+  jumpPrefab: {fileID: 1591111358112584, guid: e6ce79cb007768b4ea5eeb942db779b3, type: 2}
+  playerName: Two
+  dashForce: 30
+  dashDuration: 0.15
+  jumpForce: 27
+  groundPoints:
+  - {fileID: 4520083773129012}
+  - {fileID: 4688957154907340}
+  - {fileID: 4352253090187734}
+  groundRadius: 0.2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &114462949792245300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,32 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   falling: 20
   jumping: 11
-  playerName: One
---- !u!114 &114763315282239100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1687759303849358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdaf1b1f2edc8e64799440e8a0c30ee0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whiteController: {fileID: 9100000, guid: fac36ed6299353949a8d2d51530f7895, type: 2}
-  blackController: {fileID: 9100000, guid: 7750ee8639360b1418238d8031d861e9, type: 2}
-  playerName: One
-  dashForce: 30
-  dashDuration: 0.15
-  jumpForce: 27
-  groundPoints:
-  - {fileID: 4520083773129012}
-  - {fileID: 4688957154907340}
-  - {fileID: 4352253090187734}
-  groundRadius: 0.2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  playerName: Two
 --- !u!212 &212391536452402066
 SpriteRenderer:
   m_ObjectHideFlags: 1

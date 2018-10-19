@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50387647957197660}
   - component: {fileID: 95964681328695700}
   - component: {fileID: 114368883259051872}
-  - component: {fileID: 114345750531092910}
+  - component: {fileID: 114057070140183030}
   m_Layer: 9
   m_Name: Doug
   m_TagString: Untagged
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220951673722642}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.59, y: 5.6, z: 0}
+  m_LocalPosition: {x: -18.59, y: 5.21, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_Children:
   - {fileID: 4908721878412322}
@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1266989661021054}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 2.94, y: -5.1, z: 0}
+  m_LocalPosition: {x: 1, y: -6.2, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children: []
   m_Father: {fileID: 4169469155255536}
@@ -113,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1897469962124350}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -2.27, y: -5.1, z: 0}
+  m_LocalPosition: {x: -3.5, y: -6.3, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children: []
   m_Father: {fileID: 4169469155255536}
@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1616294185340408}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.64, y: -5.1, z: 0}
+  m_LocalPosition: {x: -1.1, y: -6.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4169469155255536}
@@ -175,7 +175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.226136, y: 8.938408}
+  m_Size: {x: 7.515751, y: 8.938408}
   m_EdgeRadius: 0
 --- !u!95 &95964681328695700
 Animator:
@@ -195,7 +195,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114345750531092910
+--- !u!114 &114057070140183030
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,12 +203,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1220951673722642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdaf1b1f2edc8e64799440e8a0c30ee0, type: 3}
+  m_Script: {fileID: 11500000, guid: f5c41ea50bb21f84b8bdfc4128cfb0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   whiteController: {fileID: 9100000, guid: 31374f617e0251245bc0762d57b43d47, type: 2}
   blackController: {fileID: 9100000, guid: cb9ff4cfe4ad05b47a2c25bbcb7ec4ef, type: 2}
-  playerName: Two
+  switchEffectWhitePrefab: {fileID: 1923908761725466, guid: cd3b21f01b0a9b0428b5278dd8fc6704,
+    type: 2}
+  switchEffectBlackPrefab: {fileID: 1942862577677904, guid: 1fe49c6632077d2428793a645e110415,
+    type: 2}
+  dashPrefab: {fileID: 1413544597668764, guid: 77918e65c80c72e4094017c4104e25ea, type: 2}
+  landPrefab: {fileID: 1276689865808954, guid: 337ddc8892f8c7a43a137165f238106a, type: 2}
+  jumpPrefab: {fileID: 1591111358112584, guid: e6ce79cb007768b4ea5eeb942db779b3, type: 2}
+  playerName: One
   dashForce: 30
   dashDuration: 0.15
   jumpForce: 27
@@ -233,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   falling: 20
   jumping: 11
-  playerName: Two
+  playerName: One
 --- !u!212 &212029455824212362
 SpriteRenderer:
   m_ObjectHideFlags: 1

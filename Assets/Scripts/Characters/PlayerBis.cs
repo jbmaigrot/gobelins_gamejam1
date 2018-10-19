@@ -8,8 +8,20 @@ public class PlayerBis : MonoBehaviour
 
     [SerializeField]
     private RuntimeAnimatorController whiteController;
+
     [SerializeField]
     private RuntimeAnimatorController blackController;
+
+    [SerializeField]
+    private GameObject switchEffectWhitePrefab;
+    [SerializeField]
+    private GameObject switchEffectBlackPrefab;
+    [SerializeField]
+    private GameObject dashPrefab;
+    [SerializeField]
+    private GameObject landPrefab;
+    [SerializeField]
+    private GameObject jumpPrefab;
 
     [SerializeField]
     private string playerName;
@@ -87,7 +99,7 @@ public class PlayerBis : MonoBehaviour
         }
         isGrounded = IsGrounded(rb);
 
-        if (v.y < -0.2 )
+        if (v.y < -0.2)
         {
             MyAnimator.SetBool("Land", true);
         }
@@ -100,6 +112,7 @@ public class PlayerBis : MonoBehaviour
         else if (dashButton)
         {
             dashAction.StartDash(0, isFacingRight, MyAnimator);
+            StartCoroutine("DashEffect");
         }
         else
         {
@@ -112,22 +125,12 @@ public class PlayerBis : MonoBehaviour
         if (jumpButton)
         {
             Jump();
+            StartCoroutine(JumpEffect(horizontal));
         }
 
         if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1) && switchOn)
         {
-            if (this.gameObject.layer == 9)
-            {
-                this.gameObject.layer = 8;
-                this.gameObject.GetComponent<Animator>().runtimeAnimatorController = whiteController as RuntimeAnimatorController;
-            }
-            else
-            {
-                this.gameObject.layer = 9;
-                this.gameObject.GetComponent<Animator>().runtimeAnimatorController = blackController as RuntimeAnimatorController;
-            }
-
-            switchOn = false;
+            StartCoroutine(Switch());
         }
         else if ((Input.GetAxis(playerName + "LT") == 0 || Input.GetAxis(playerName + "RT") == 0) && !switchOn)
         {
@@ -169,7 +172,7 @@ public class PlayerBis : MonoBehaviour
             isGrounded = false;
             MyAnimator.SetTrigger("Jump");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-         
+
         }
     }
 
@@ -190,7 +193,11 @@ public class PlayerBis : MonoBehaviour
                         //If the colliders collide with something else than the player, then the players is grounded
                         canJump = true;
                         MyAnimator.ResetTrigger("Jump");
-                        MyAnimator.SetBool("Land", false);
+                        if (MyAnimator.GetBool("Land"))
+                        {
+                            MyAnimator.SetBool("Land", false);
+                            StartCoroutine("LandEffect");
+                        }
                         return true;
                     }
                 }
@@ -205,6 +212,7 @@ public class PlayerBis : MonoBehaviour
         health--;
         //shake.CamShake();
         canMove = false;
+        rb.velocity = new Vector2(0, 0);
         Time.timeScale = 0.5f;
         MyAnimator.SetTrigger("Damage");
         yield return new WaitForSeconds(0.7f);
@@ -255,5 +263,64 @@ public class PlayerBis : MonoBehaviour
                 //écran de fin
             }
         }
+    }
+    private IEnumerator Switch()
+    {
+        GameObject temporaryPrefab = null;
+        if (this.gameObject.layer == 9)
+        {
+            this.gameObject.layer = 8;
+            this.gameObject.GetComponent<Animator>().runtimeAnimatorController = whiteController as RuntimeAnimatorController;
+            temporaryPrefab = switchEffectWhitePrefab;
+        }
+        else
+        {
+            this.gameObject.layer = 9;
+            this.gameObject.GetComponent<Animator>().runtimeAnimatorController = blackController as RuntimeAnimatorController;
+            temporaryPrefab = switchEffectBlackPrefab;
+        }
+        
+        GameObject temporaryEffect = (GameObject)Instantiate(temporaryPrefab, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.Euler(0, 0, 0));
+        temporaryEffect.transform.SetParent(transform);
+        switchOn = false;
+        yield return new WaitForSeconds(0.1f);
+        Destroy(temporaryEffect);
+    }
+
+    private IEnumerator DashEffect()
+    {
+        GameObject temporaryEffect = null;
+        if (isFacingRight)
+            temporaryEffect = (GameObject)Instantiate(dashPrefab, new Vector2(transform.position.x - 1.5f, transform.position.y - 0.5f), Quaternion.Euler(0, 0, 0));
+        else
+            temporaryEffect = (GameObject)Instantiate(dashPrefab, new Vector2(transform.position.x + 1.5f, transform.position.y - 0.5f), Quaternion.Euler(0, 0, 180));
+        //temporaryEffect.transform.SetParent(transform);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(temporaryEffect);
+    }
+
+
+    private IEnumerator LandEffect()
+    {
+        GameObject temporaryEffect = null;
+        temporaryEffect = (GameObject)Instantiate(landPrefab, new Vector2(transform.position.x, transform.position.y - 0.8f), Quaternion.Euler(0, 0, 0));
+        temporaryEffect.transform.SetParent(transform);
+        yield return new WaitForSeconds(0.2f);
+        Destroy(temporaryEffect);
+    }
+
+    private IEnumerator JumpEffect(float horizontal)
+    {
+        GameObject temporaryEffect = null;
+        if (horizontal > 0)
+            temporaryEffect = (GameObject)Instantiate(jumpPrefab, new Vector2(transform.position.x - 1f, transform.position.y - 0.8f), Quaternion.Euler(0, 0, 0));
+        else if (horizontal < 0)
+            temporaryEffect = (GameObject)Instantiate(jumpPrefab, new Vector2(transform.position.x + 1f, transform.position.y - 0.8f), Quaternion.Euler(0, 180, 0));
+        else if (horizontal == 0)
+            temporaryEffect = (GameObject)Instantiate(jumpPrefab, new Vector2(transform.position.x, transform.position.y - 0.8f), Quaternion.Euler(0, 0, 20));
+
+        temporaryEffect.transform.SetParent(transform);
+        yield return new WaitForSeconds(0.2f);
+        Destroy(temporaryEffect);
     }
 }
