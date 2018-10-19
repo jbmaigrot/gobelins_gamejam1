@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour {
 
     public void TakeDamageUI(int nbLifes, string player)
     {
-  
+        ui = GameObject.Find("UI");
 
         if (nbLifes >= 0)
         {
