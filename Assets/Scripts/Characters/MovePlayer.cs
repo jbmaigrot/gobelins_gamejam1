@@ -34,41 +34,5 @@ public class MovePlayer
     {
         this.MyAnimator = MyAnimator;
     }
-
-
-    //MyRigidbody.velocity = new Vector2(horizontal * 2 * movementSpeed, MyRigidbody.velocity.y);
-
-    /*if(horizontal < -0.1f)
-    {
-        if(MyRigidbody.velocity.x > -maxSpeed)
-        {
-            MyRigidbody.AddForce(new Vector2(-Acceleration, 0.0f));
-        }
-        else
-        {
-            MyRigidbody.velocity = new Vector2(-maxSpeed, MyRigidbody.velocity.y);
-        }
-    }
-    else if (horizontal > 0.1f)
-    {
-        if (MyRigidbody.velocity.x < maxSpeed)
-        {
-            MyRigidbody.AddForce(new Vector2(Acceleration, 0.0f));
-        }
-        else
-        {
-            MyRigidbody.velocity = new Vector2(maxSpeed, MyRigidbody.velocity.y);
-        }
-    }*/
-
-    //Handles running
-    /*public void HandleAccelerationMovement(float horizontal, AnimationCurve curve, Vector2 v)
-    {
-        if ( moveTime < maxMoveTime)
-        {
-            v.x = maxSpeed * curve.Evaluate(moveTime / maxMoveTime);
-            moveTime += Time.deltaTime;
-        }
-    }*/
 }
 

@@ -12,6 +12,7 @@ public class PlayerBis : MonoBehaviour
     private Vector2 direction;
     private float dashCurrentTime;
     private bool isDashing;
+    private bool isJumping;
 
 
     [SerializeField]
@@ -117,16 +118,16 @@ public class PlayerBis : MonoBehaviour
         {
             v = Dashing(v);
         }
-        else if (dashButton && canDash )
+        else if (dashButton && canDash)
         {
             StartDash(0);
-            if(this.gameObject.name == "Doug")
+            if (this.gameObject.name == "Doug")
             {
                 AudioManager.instance.Play("DougDash");
             }
             else if (this.gameObject.name == "Bong")
             {
-                AudioManager.instance.Play("BongDash");
+                //AudioManager.instance.Play("BongDash");
             }
             StartCoroutine("DashEffect");
         }
@@ -135,6 +136,10 @@ public class PlayerBis : MonoBehaviour
             if (canMove)
             {
                 v = moveAction.HandleMovement(horizontal, v);
+                if (horizontal != 0 && !isDashing && !isJumping && isGrounded && gameObject.name == "Doug")
+                {
+                    AudioManager.instance.Play("DougRun");
+                }
             }
         }
         rb.velocity = v;
@@ -186,9 +191,17 @@ public class PlayerBis : MonoBehaviour
         {
             canJump = false;
             isGrounded = false;
+            isJumping = true;
             MyAnimator.SetTrigger("Jump");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-
+            if (gameObject.name == "Bong")
+            {
+                AudioManager.instance.Play("BongJump");
+            }
+            else if (gameObject.name == "Doug")
+            {
+                AudioManager.instance.Play("DougJump");
+            }
         }
     }
 
@@ -208,11 +221,12 @@ public class PlayerBis : MonoBehaviour
                     {
                         //If the colliders collide with something else than the player, then the players is grounded
                         canJump = true;
+                        isJumping = false;
                         MyAnimator.ResetTrigger("Jump");
                         if (MyAnimator.GetBool("Land"))
                         {
                             MyAnimator.SetBool("Land", false);
-                            AudioManager.instance.Play("Land");
+                            AudioManager.instance.Play(gameObject.name+"Land");
                             StartCoroutine("LandEffect");
                         }
                         return true;
@@ -227,9 +241,10 @@ public class PlayerBis : MonoBehaviour
     private IEnumerator DamagePlayer()
     {
         health--;
+        AudioManager.instance.Play(gameObject.name + "Damage");
         UIManager.UImanager.TakeDamageUI(health, this.name);
         //shake.CamShake();
-        if(this.playerName == "One")
+        if (this.playerName == "One")
         {
             GamePad.SetVibration(PlayerIndex.Two, 0.3f, 0.3f);
         }
@@ -244,7 +259,7 @@ public class PlayerBis : MonoBehaviour
         GamePad.SetVibration(PlayerIndex.One, 0, 0);
         GamePad.SetVibration(PlayerIndex.Two, 0, 0);
         MyAnimator.ResetTrigger("Damage");
-    
+
     }
 
     private bool IsDead()
@@ -306,7 +321,15 @@ public class PlayerBis : MonoBehaviour
             this.gameObject.GetComponent<Animator>().runtimeAnimatorController = blackController as RuntimeAnimatorController;
             temporaryPrefab = switchEffectBlackPrefab;
         }
-        
+        if (gameObject.name == "Bong")
+        {
+            AudioManager.instance.Play("BongSwitch");
+        }
+        else if (gameObject.name == "Doug")
+        {
+            AudioManager.instance.Play("DougSwitch");
+        }
+
         GameObject temporaryEffect = (GameObject)Instantiate(temporaryPrefab, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.Euler(0, 0, 0));
         temporaryEffect.transform.SetParent(transform);
         switchOn = false;
@@ -355,6 +378,14 @@ public class PlayerBis : MonoBehaviour
     {
         isDashing = true;
         MyAnimator.SetTrigger("Dash");
+        if (gameObject.name == "Bong")
+        {
+            AudioManager.instance.Play("BongDash");
+        }
+        else if (gameObject.name == "Doug")
+        {
+            AudioManager.instance.Play("DougDash");
+        }
         // Direction of the dash
         if (isFacingRight)
         {
