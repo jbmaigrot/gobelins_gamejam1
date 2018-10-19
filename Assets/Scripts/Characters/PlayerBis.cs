@@ -20,6 +20,8 @@ public class PlayerBis : MonoBehaviour
     private GameObject dashPrefab;
     [SerializeField]
     private GameObject landPrefab;
+    [SerializeField]
+    private GameObject jumpPrefab;
 
     [SerializeField]
     private string playerName;
@@ -123,6 +125,7 @@ public class PlayerBis : MonoBehaviour
         if (jumpButton)
         {
             Jump();
+            StartCoroutine(JumpEffect(horizontal));
         }
 
         if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1) && switchOn)
@@ -268,15 +271,15 @@ public class PlayerBis : MonoBehaviour
         {
             this.gameObject.layer = 8;
             this.gameObject.GetComponent<Animator>().runtimeAnimatorController = whiteController as RuntimeAnimatorController;
-            temporaryPrefab = switchEffectBlackPrefab;
+            temporaryPrefab = switchEffectWhitePrefab;
         }
         else
         {
             this.gameObject.layer = 9;
             this.gameObject.GetComponent<Animator>().runtimeAnimatorController = blackController as RuntimeAnimatorController;
-            temporaryPrefab = switchEffectWhitePrefab;
+            temporaryPrefab = switchEffectBlackPrefab;
         }
-
+        
         GameObject temporaryEffect = (GameObject)Instantiate(temporaryPrefab, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.Euler(0, 0, 0));
         temporaryEffect.transform.SetParent(transform);
         switchOn = false;
@@ -302,7 +305,22 @@ public class PlayerBis : MonoBehaviour
         GameObject temporaryEffect = null;
         temporaryEffect = (GameObject)Instantiate(landPrefab, new Vector2(transform.position.x, transform.position.y - 0.8f), Quaternion.Euler(0, 0, 0));
         temporaryEffect.transform.SetParent(transform);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
+        Destroy(temporaryEffect);
+    }
+
+    private IEnumerator JumpEffect(float horizontal)
+    {
+        GameObject temporaryEffect = null;
+        if (horizontal > 0)
+            temporaryEffect = (GameObject)Instantiate(jumpPrefab, new Vector2(transform.position.x - 1f, transform.position.y - 0.8f), Quaternion.Euler(0, 0, 0));
+        else if (horizontal < 0)
+            temporaryEffect = (GameObject)Instantiate(jumpPrefab, new Vector2(transform.position.x + 1f, transform.position.y - 0.8f), Quaternion.Euler(0, 180, 0));
+        else if (horizontal == 0)
+            temporaryEffect = (GameObject)Instantiate(jumpPrefab, new Vector2(transform.position.x, transform.position.y - 0.8f), Quaternion.Euler(0, 0, 20));
+
+        temporaryEffect.transform.SetParent(transform);
+        yield return new WaitForSeconds(0.2f);
         Destroy(temporaryEffect);
     }
 }
