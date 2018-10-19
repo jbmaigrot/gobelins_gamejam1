@@ -24,8 +24,7 @@ public class GameManager : MonoBehaviour
         // Command to restart the level
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Time.timeScale = 1;
+            Restart();
         }
         //Command Exit
         else if (Input.GetKeyDown(KeyCode.Escape))
@@ -42,6 +41,13 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+    }
+
     //Load the level
     public void SetLevel(string sceneName)
     {

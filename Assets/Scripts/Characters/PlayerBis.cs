@@ -14,6 +14,11 @@ public class PlayerBis : MonoBehaviour
     private bool isDashing;
     private bool isJumping;
 
+    public GameObject win;
+    public GameObject lose;
+    public GameObject one;
+    public GameObject two;
+
 
     [SerializeField]
     private RuntimeAnimatorController whiteController;
@@ -136,10 +141,6 @@ public class PlayerBis : MonoBehaviour
             if (canMove)
             {
                 v = moveAction.HandleMovement(horizontal, v);
-                if (horizontal != 0 && !isDashing && !isJumping && isGrounded && gameObject.name == "Doug")
-                {
-                    AudioManager.instance.Play("DougRun");
-                }
             }
         }
         rb.velocity = v;
@@ -246,11 +247,11 @@ public class PlayerBis : MonoBehaviour
         //shake.CamShake();
         if (this.playerName == "One")
         {
-            GamePad.SetVibration(PlayerIndex.Two, 0.3f, 0.3f);
+            GamePad.SetVibration(PlayerIndex.One, 0.3f, 0.3f);
         }
         else if (this.playerName == "Two")
         {
-            GamePad.SetVibration(PlayerIndex.One, 0.3f, 0.3f);
+            GamePad.SetVibration(PlayerIndex.Two, 0.3f, 0.3f);
         }
         canMove = false;
         rb.velocity = new Vector2(0, 0);
@@ -302,9 +303,41 @@ public class PlayerBis : MonoBehaviour
             }
             else
             {
-                //écran de fin
+                if(this.playerName == "One")
+                    EndGame(true, "Two");
+                else if (this.playerName == "Two")
+                    EndGame(true, "One");
             }
         }
+        if (collision.CompareTag("End"))
+        {
+             EndGame(true, playerName);
+        }
+
+    }
+
+    public void EndGame(bool victoire, string player)
+    {
+        if (!victoire)
+        {
+            lose.SetActive(true);
+        }
+        else
+        {
+            win.SetActive(true);
+        }
+
+        if (player == "One")
+        {
+            one.SetActive(true);
+        }
+        else if (player == "Two")
+        {
+            two.SetActive(true);
+        }
+        GamePad.SetVibration(PlayerIndex.One, 0, 0);
+        GamePad.SetVibration(PlayerIndex.Two, 0, 0);
+        Time.timeScale=0f;
     }
     private IEnumerator Switch()
     {
