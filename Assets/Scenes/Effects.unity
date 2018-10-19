@@ -1026,6 +1026,7 @@ MonoBehaviour:
   player2: {fileID: 1994540159}
   death: {fileID: 1143697450}
   invisibleWall: {fileID: 723597796}
+  ui: {fileID: 0}
 --- !u!61 &748733637
 BoxCollider2D:
   m_ObjectHideFlags: 0
