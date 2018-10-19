@@ -127,8 +127,7 @@ public class PlayerBis : MonoBehaviour
         {
             Jump();
             StartCoroutine(JumpEffect(horizontal));
-            //GamePad.SetVibration(PlayerIndex.Two, 1, 1);
-            //GamePad.SetVibration(PlayerIndex.One, 1, 1);
+            AudioManager.instance.Play("Bark");
         }
 
         if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1) && switchOn)
@@ -215,10 +214,20 @@ public class PlayerBis : MonoBehaviour
         health--;
         UIManager.UImanager.TakeDamageUI(health, this.name);
         //shake.CamShake();
+        if(this.playerName == "One")
+        {
+            GamePad.SetVibration(PlayerIndex.Two, 0.3f, 0.3f);
+        }
+        else if (this.playerName == "Two")
+        {
+            GamePad.SetVibration(PlayerIndex.One, 0.3f, 0.3f);
+        }
         canMove = false;
         rb.velocity = new Vector2(0, 0);
         MyAnimator.SetTrigger("Damage");
         yield return new WaitForSeconds(0.7f);
+        GamePad.SetVibration(PlayerIndex.One, 0, 0);
+        GamePad.SetVibration(PlayerIndex.Two, 0, 0);
         MyAnimator.ResetTrigger("Damage");
     
     }
