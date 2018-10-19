@@ -957,8 +957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73205460eb2192e499eca62494221743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  play: {fileID: 19452896}
-  quit: {fileID: 554665752}
+  play: {fileID: 19452898}
+  quit: {fileID: 554665754}
 --- !u!224 &1766167941
 RectTransform:
   m_ObjectHideFlags: 0
