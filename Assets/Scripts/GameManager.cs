@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     public static GameManager Gm = null;
 
     void Awake()
@@ -17,7 +18,6 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -46,6 +46,6 @@ public class GameManager : MonoBehaviour {
     public void SetLevel(string sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-
     }
 }
+
