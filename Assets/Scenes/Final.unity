@@ -3772,6 +3772,7 @@ MonoBehaviour:
   player2: {fileID: 613256288}
   death: {fileID: 1168109163}
   invisibleWall: {fileID: 723597796}
+  ui: {fileID: 796825757}
 --- !u!61 &748733637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3977,6 +3978,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 86.49718, y: 2.4869003}
   m_EdgeRadius: 0
+--- !u!1 &796825757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1339451660810176, guid: a6e1fe5793cb60646a8d9848ca3a1cc4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1058707183}
 --- !u!1 &842389091
 GameObject:
   m_ObjectHideFlags: 0
