@@ -5685,6 +5685,14 @@ Prefab:
       propertyPath: background
       value: 
       objectReference: {fileID: 757635472}
+    - target: {fileID: 4361553776190634, guid: e2b17f4f46ef9e24ea1dc16dc86a4cd1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361553776190634, guid: e2b17f4f46ef9e24ea1dc16dc86a4cd1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b17f4f46ef9e24ea1dc16dc86a4cd1, type: 2}
   m_IsPrefabAsset: 0
