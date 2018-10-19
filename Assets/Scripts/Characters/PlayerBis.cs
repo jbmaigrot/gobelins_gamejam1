@@ -210,14 +210,14 @@ public class PlayerBis : MonoBehaviour
     private IEnumerator DamagePlayer()
     {
         health--;
+        UIManager.UImanager.TakeDamageUI(health, this.name);
         //shake.CamShake();
         canMove = false;
         rb.velocity = new Vector2(0, 0);
-        Time.timeScale = 0.5f;
         MyAnimator.SetTrigger("Damage");
         yield return new WaitForSeconds(0.7f);
         MyAnimator.ResetTrigger("Damage");
-        Time.timeScale = 1f;
+    
     }
 
     private bool IsDead()
