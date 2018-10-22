@@ -25,7 +25,7 @@ public class TutoEnd : MonoBehaviour {
         {
             mainCamera.moveSpeed = 3;
             death.SetActive(true);
-            invisibleWall.enabled = false;
+            //invisibleWall.enabled = false;
   
             ui.SetActive(true);
 

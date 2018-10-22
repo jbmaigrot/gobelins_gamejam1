@@ -81,7 +81,7 @@ public class PlayerBis : MonoBehaviour
         isFacingRight = true;
         canMove = true;
         health = 3;
-        //shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
         // Dash initialisation
         dashAction = new Dash
@@ -244,7 +244,7 @@ public class PlayerBis : MonoBehaviour
         health--;
         AudioManager.instance.Play("Damage");
         UIManager.UImanager.TakeDamageUI(health, this.name);
-        //shake.CamShake();
+        shake.CamShake();
         if (this.playerName == "One")
         {
             GamePad.SetVibration(PlayerIndex.One, 0.3f, 0.3f);
@@ -265,7 +265,7 @@ public class PlayerBis : MonoBehaviour
 
     private bool IsDead()
     {
-        return health <= 0;
+        return health < 0;
     }
 
     private void RespawnPlayer(Vector2 respawnPosition)
@@ -343,6 +343,8 @@ public class PlayerBis : MonoBehaviour
     private IEnumerator Switch()
     {
         GameObject temporaryPrefab = null;
+        shake.CamShake();
+
         if (this.gameObject.layer == 9)
         {
             this.gameObject.layer = 8;
