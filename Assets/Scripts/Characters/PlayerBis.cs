@@ -150,7 +150,7 @@ public class PlayerBis : MonoBehaviour
             StartCoroutine(JumpEffect(horizontal));
         }
 
-        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1) && switchOn)
+        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1 || Input.GetButtonDown(playerName + "LT")) && switchOn)
         {
             StartCoroutine(Switch());
         }
