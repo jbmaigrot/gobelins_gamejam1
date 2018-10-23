@@ -23,7 +23,7 @@ public class TutoEnd : MonoBehaviour {
 	void Update () {
         if (trigger.bounds.Contains(player1.position) && trigger.bounds.Contains(player2.position))
         {
-            mainCamera.moveSpeed = 3;
+            mainCamera.moveSpeed = 10;
             death.SetActive(true);
             //invisibleWall.enabled = false;
   
