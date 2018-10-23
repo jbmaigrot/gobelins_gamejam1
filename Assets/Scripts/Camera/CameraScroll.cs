@@ -26,6 +26,10 @@ public class CameraScroll : MonoBehaviour {
         }
         // Camera moving to the next pathPoint
         transform.position = Vector3.MoveTowards(transform.position, pathPoints[currentPoint].position, moveSpeed * Time.deltaTime);
-        background.transform.position = Vector3.MoveTowards(background.transform.position, pathPoints[currentPoint].position, moveSpeed/7 * Time.deltaTime);
+        if(transform.position != pathPoints[currentPoint].position)
+        {
+            background.transform.position = Vector3.MoveTowards(background.transform.position, pathPoints[currentPoint].position, moveSpeed / 7 * Time.deltaTime);
+
+        }
     }
 }
