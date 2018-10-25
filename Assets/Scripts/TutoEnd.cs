@@ -5,8 +5,8 @@ using UnityEngine;
 public class TutoEnd : MonoBehaviour {
 
     public CameraScroll mainCamera;
-    public Transform player1;
-    public Transform player2;
+    public GameObject player1;
+    public GameObject player2;
     public GameObject death;
     public Collider2D invisibleWall;
     public GameObject ui;
@@ -21,14 +21,26 @@ public class TutoEnd : MonoBehaviour {
     // Update is called once per frame
     
 	void Update () {
-        if (trigger.bounds.Contains(player1.position) && trigger.bounds.Contains(player2.position))
+        if(player2.activeSelf)
         {
-            mainCamera.moveSpeed = 3;
-            death.SetActive(true);
-            //invisibleWall.enabled = false;
-  
-            ui.SetActive(true);
+            if (trigger.bounds.Contains(player1.transform.position) && trigger.bounds.Contains(player2.transform.position))
+            {
+                mainCamera.moveSpeed = 3;
+                death.SetActive(true);
+                ui.SetActive(true);
 
+            }
         }
+        else
+        {
+            if (trigger.bounds.Contains(player1.transform.position))
+            {
+                mainCamera.moveSpeed = 3;
+                death.SetActive(true);
+                ui.SetActive(true);
+
+            }
+        }
+
 	}
 }
