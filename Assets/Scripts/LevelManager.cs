@@ -8,8 +8,10 @@ public class LevelManager : MonoBehaviour {
     public GameObject lose;
     public GameObject one;
     public GameObject two;
-	// Use this for initialization
-	void Start () {
+
+    public GameObject info;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -37,7 +39,7 @@ public class LevelManager : MonoBehaviour {
         {
             two.SetActive(true);
         }
-
+        info.SetActive(true);
     }
 
 }
