@@ -13,7 +13,7 @@ public class PlayerBis : MonoBehaviour
     private float dashCurrentTime;
     private bool isDashing;
     private bool isJumping;
-
+    
     public GameObject win;
     public GameObject lose;
     public GameObject one;
@@ -74,6 +74,9 @@ public class PlayerBis : MonoBehaviour
     float dashButton;
     bool jumpButton;
 
+
+    [SerializeField]
+    private int playerMode = 2;
     public void Start()
     {
         MyAnimator = GetComponent<Animator>();
@@ -303,10 +306,18 @@ public class PlayerBis : MonoBehaviour
             }
             else
             {
-                if(this.playerName == "One")
-                    EndGame(true, "Two");
-                else if (this.playerName == "Two")
-                    EndGame(true, "One");
+                if(playerMode == 1)
+                {
+                    EndGame(false, "One");
+                }
+                else
+                {
+                    if (this.playerName == "One")
+                        EndGame(true, "Two");
+                    else if (this.playerName == "Two")
+                        EndGame(true, "One");
+                }
+
             }
         }
         if (collision.CompareTag("End"))
