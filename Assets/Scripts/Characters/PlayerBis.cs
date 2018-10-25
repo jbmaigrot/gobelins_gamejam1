@@ -71,7 +71,7 @@ public class PlayerBis : MonoBehaviour
 
     //Inputs
     float horizontal;
-    bool dashButton;
+    float dashButton;
     bool jumpButton;
 
     public void Start()
@@ -123,7 +123,7 @@ public class PlayerBis : MonoBehaviour
         {
             v = Dashing(v);
         }
-        else if (dashButton && canDash)
+        else if (dashButton == 1 && canDash)
         {
             StartDash(0);
             if (this.gameObject.name == "Doug")
@@ -150,11 +150,11 @@ public class PlayerBis : MonoBehaviour
             StartCoroutine(JumpEffect(horizontal));
         }
 
-        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetAxis(playerName + "RT") == 1 || Input.GetButtonDown(playerName + "LT")) && switchOn)
+        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetButtonDown(playerName + "LT")) && switchOn)
         {
             StartCoroutine(Switch());
         }
-        else if ((Input.GetAxis(playerName + "LT") == 0 || Input.GetAxis(playerName + "RT") == 0) && !switchOn)
+        else if ((Input.GetAxis(playerName + "LT") == 0) && !switchOn)
         {
             switchOn = true;
         }
@@ -165,7 +165,7 @@ public class PlayerBis : MonoBehaviour
     private void GetInputs()
     {
         horizontal = Input.GetAxis(playerName + "Horizontal");
-        dashButton = Input.GetButtonDown(playerName + "Dash");
+        dashButton = Input.GetAxisRaw(playerName + "Dash");
         jumpButton = Input.GetButtonDown(playerName + "Jump");
     }
 
