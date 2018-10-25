@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: de588f8ad22be49438af5a3110f672db
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Millimetre
+  fontNames:
+  - Millimetre
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5745e0d080cfbb943befe1f3367df8fd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
