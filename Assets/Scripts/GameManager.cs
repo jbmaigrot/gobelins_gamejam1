@@ -23,12 +23,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Command to restart the level
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("OneReturn") || Input.GetButtonDown("TwoReturn"))
         {
             Restart();
         }
         //Command Exit
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("OneStart") || Input.GetButtonDown("TwoStart"))
         {
             //Exit the game when it is the hub
             if (SceneManager.GetActiveScene().name == "Menu")
