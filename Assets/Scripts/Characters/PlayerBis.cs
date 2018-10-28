@@ -234,24 +234,27 @@ public class PlayerBis : MonoBehaviour
         health--;
         AudioManager.instance.Play("Damage");
         UIManager.UImanager.TakeDamageUI(health, this.name);
+
+        canMove = false;
+        rb.velocity = new Vector2(0, 0);
+
+        MyAnimator.SetTrigger("Damage");
+        MyAnimator.ResetTrigger("Damage");
+        
         shake.CamShake();
         if (this.playerName == "One")
         {
             GamePad.SetVibration(PlayerIndex.One, 0.1f, 0.1f);
+            yield return new WaitForSeconds(0.7f);
+            GamePad.SetVibration(PlayerIndex.One, 0, 0);
         }
         else if (this.playerName == "Two")
         {
             GamePad.SetVibration(PlayerIndex.Two, 0.1f, 0.1f);
+            yield return new WaitForSeconds(0.7f);
+            GamePad.SetVibration(PlayerIndex.Two, 0, 0);
         }
-        GamePad.SetVibration(PlayerIndex.One, 0, 0);
-        GamePad.SetVibration(PlayerIndex.Two, 0, 0);
-        canMove = false;
-        rb.velocity = new Vector2(0, 0);
-        MyAnimator.SetTrigger("Damage");
-        yield return new WaitForSeconds(0.7f);
-        GamePad.SetVibration(PlayerIndex.One, 0, 0);
-        GamePad.SetVibration(PlayerIndex.Two, 0, 0);
-        MyAnimator.ResetTrigger("Damage");
+
 
     }
 

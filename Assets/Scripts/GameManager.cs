@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     public void SetLevel(string sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
 
     public void QuitGame()
