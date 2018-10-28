@@ -19,6 +19,8 @@ public class PlayerBis : MonoBehaviour
     public GameObject one;
     public GameObject two;
 
+    [SerializeField]
+    public GameObject info;
 
     [SerializeField]
     private RuntimeAnimatorController whiteController;
@@ -129,14 +131,6 @@ public class PlayerBis : MonoBehaviour
         else if (dashButton == 1 && canDash)
         {
             StartDash(0);
-            if (this.gameObject.name == "Doug")
-            {
-                AudioManager.instance.Play("DougDash");
-            }
-            else if (this.gameObject.name == "Bong")
-            {
-                AudioManager.instance.Play("BongDash");
-            }
             StartCoroutine("DashEffect");
         }
         else
@@ -198,14 +192,7 @@ public class PlayerBis : MonoBehaviour
             isJumping = true;
             MyAnimator.SetTrigger("Jump");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            if (gameObject.name == "Bong")
-            {
-                AudioManager.instance.Play("BongJump");
-            }
-            else if (gameObject.name == "Doug")
-            {
-                AudioManager.instance.Play("DougJump");
-            }
+            AudioManager.instance.Play(gameObject.name + "Jump");
         }
     }
 
@@ -250,12 +237,14 @@ public class PlayerBis : MonoBehaviour
         shake.CamShake();
         if (this.playerName == "One")
         {
-            GamePad.SetVibration(PlayerIndex.One, 0.3f, 0.3f);
+            GamePad.SetVibration(PlayerIndex.One, 0.1f, 0.1f);
         }
         else if (this.playerName == "Two")
         {
-            GamePad.SetVibration(PlayerIndex.Two, 0.3f, 0.3f);
+            GamePad.SetVibration(PlayerIndex.Two, 0.1f, 0.1f);
         }
+        GamePad.SetVibration(PlayerIndex.One, 0, 0);
+        GamePad.SetVibration(PlayerIndex.Two, 0, 0);
         canMove = false;
         rb.velocity = new Vector2(0, 0);
         MyAnimator.SetTrigger("Damage");
@@ -329,6 +318,9 @@ public class PlayerBis : MonoBehaviour
 
     public void EndGame(bool victoire, string player)
     {
+        gameObject.SetActive(false);
+        GamePad.SetVibration(PlayerIndex.One, 0, 0);
+        GamePad.SetVibration(PlayerIndex.Two, 0, 0);
         if (!victoire)
         {
             lose.SetActive(true);
@@ -347,8 +339,7 @@ public class PlayerBis : MonoBehaviour
         {
             two.SetActive(true);
         }
-        GamePad.SetVibration(PlayerIndex.One, 0, 0);
-        GamePad.SetVibration(PlayerIndex.Two, 0, 0);
+        info.SetActive(true);
         Time.timeScale=0f;
     }
     private IEnumerator Switch()
@@ -368,15 +359,7 @@ public class PlayerBis : MonoBehaviour
             this.gameObject.GetComponent<Animator>().runtimeAnimatorController = blackController as RuntimeAnimatorController;
             temporaryPrefab = switchEffectBlackPrefab;
         }
-        if (gameObject.name == "Bong")
-        {
-            AudioManager.instance.Play("BongSwitch");
-        }
-        else if (gameObject.name == "Doug")
-        {
-            AudioManager.instance.Play("DougSwitch");
-        }
-
+        AudioManager.instance.Play(gameObject.name + "Switch");
         GameObject temporaryEffect = (GameObject)Instantiate(temporaryPrefab, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.Euler(0, 0, 0));
         temporaryEffect.transform.SetParent(transform);
         switchOn = false;
@@ -425,14 +408,7 @@ public class PlayerBis : MonoBehaviour
     {
         isDashing = true;
         MyAnimator.SetTrigger("Dash");
-        if (gameObject.name == "Bong")
-        {
-            AudioManager.instance.Play("BongDash");
-        }
-        else if (gameObject.name == "Doug")
-        {
-            AudioManager.instance.Play("DougDash");
-        }
+        AudioManager.instance.Play(gameObject.name + "Dash");
         // Direction of the dash
         if (isFacingRight)
         {

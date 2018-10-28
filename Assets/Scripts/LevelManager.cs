@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour {
 
     public void EndGame(bool victoire, string player)
     {
+        Debug.Log("ajjds");
         if (!victoire)
         {
             lose.SetActive(true);  
