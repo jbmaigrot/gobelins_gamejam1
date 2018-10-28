@@ -30079,11 +30079,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1400373264481560, guid: a6e1fe5793cb60646a8d9848ca3a1cc4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1068489090091980, guid: a6e1fe5793cb60646a8d9848ca3a1cc4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224471833725572960, guid: a6e1fe5793cb60646a8d9848ca3a1cc4,
         type: 2}
