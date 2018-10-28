@@ -19,5 +19,8 @@ EditorBuildSettings:
     guid: f6cbae4dc39349e4d85c81b8cc1948d0
   - enabled: 1
     path: Assets/Scenes/OnePlayerDemo.unity
-    guid: db7a3fcef927e5e4f9aa8ed58b6e9138
+    guid: f7038c6f74dc353419404339b5bdc482
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
