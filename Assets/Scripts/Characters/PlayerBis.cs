@@ -323,8 +323,6 @@ public class PlayerBis : MonoBehaviour
     public void EndGame(bool victoire, string player)
     {
         gameObject.SetActive(false);
-        GamePad.SetVibration(PlayerIndex.One, 0, 0);
-        GamePad.SetVibration(PlayerIndex.Two, 0, 0);
         if (!victoire)
         {
             lose.SetActive(true);
