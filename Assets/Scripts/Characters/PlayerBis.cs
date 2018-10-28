@@ -248,7 +248,8 @@ public class PlayerBis : MonoBehaviour
             yield return new WaitForSeconds(0.7f);
             GamePad.SetVibration(PlayerIndex.One, 0, 0);
         }
-        else if (this.playerName == "Two")
+
+        if (this.playerName == "Two")
         {
             GamePad.SetVibration(PlayerIndex.Two, 0.1f, 0.1f);
             yield return new WaitForSeconds(0.7f);
