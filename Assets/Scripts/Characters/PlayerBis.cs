@@ -101,10 +101,6 @@ public class PlayerBis : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
-    {
-
-    }
 
     private void FixedUpdate()
     {
@@ -112,17 +108,16 @@ public class PlayerBis : MonoBehaviour
         HandleLayers();
 
         v = rb.velocity;
-        if (canMove)
-        {
-            Flip(horizontal);
-        }
         isGrounded = IsGrounded(rb);
 
-        if (v.y < -0.2)
+        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetButtonDown(playerName + "LT")) && switchOn)
         {
-            MyAnimator.SetBool("Land", true);
+            StartCoroutine(Switch());
         }
-
+        else if ((Input.GetAxis(playerName + "LT") == 0) && !switchOn)
+        {
+            switchOn = true;
+        }
         // Dash
         if (isDashing)
         {
@@ -147,16 +142,15 @@ public class PlayerBis : MonoBehaviour
             StartCoroutine(JumpEffect(horizontal));
         }
 
-        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetButtonDown(playerName + "LT")) && switchOn)
+        if (v.y < -0.2)
         {
-            StartCoroutine(Switch());
-        }
-        else if ((Input.GetAxis(playerName + "LT") == 0) && !switchOn)
-        {
-            switchOn = true;
+            MyAnimator.SetBool("Land", true);
         }
 
-
+        if (canMove)
+        {
+            Flip(horizontal);
+        }
     }
 
     private void GetInputs()
@@ -187,12 +181,13 @@ public class PlayerBis : MonoBehaviour
         // Player is not grounded when he jump
         if (isGrounded && canJump)
         {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            MyAnimator.SetTrigger("Jump");
+
+            AudioManager.instance.Play(gameObject.name + "Jump");
             canJump = false;
             isGrounded = false;
             isJumping = true;
-            MyAnimator.SetTrigger("Jump");
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            AudioManager.instance.Play(gameObject.name + "Jump");
         }
     }
 
@@ -347,24 +342,24 @@ public class PlayerBis : MonoBehaviour
     private IEnumerator Switch()
     {
         GameObject temporaryPrefab = null;
-        shake.CamShake();
 
         if (this.gameObject.layer == 9)
         {
-            this.gameObject.layer = 8;
             this.gameObject.GetComponent<Animator>().runtimeAnimatorController = whiteController as RuntimeAnimatorController;
+            this.gameObject.layer = 8;
             temporaryPrefab = switchEffectWhitePrefab;
         }
         else
         {
-            this.gameObject.layer = 9;
             this.gameObject.GetComponent<Animator>().runtimeAnimatorController = blackController as RuntimeAnimatorController;
+            this.gameObject.layer = 9;
             temporaryPrefab = switchEffectBlackPrefab;
         }
-        AudioManager.instance.Play(gameObject.name + "Switch");
         GameObject temporaryEffect = (GameObject)Instantiate(temporaryPrefab, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.Euler(0, 0, 0));
         temporaryEffect.transform.SetParent(transform);
         switchOn = false;
+        AudioManager.instance.Play(gameObject.name + "Switch");
+        shake.CamShake();
         yield return new WaitForSeconds(0.1f);
         Destroy(temporaryEffect);
     }

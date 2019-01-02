@@ -17,7 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final.unity
     guid: f6cbae4dc39349e4d85c81b8cc1948d0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OnePlayerDemo.unity
     guid: 2018b95ace546b847a02c422f27ff25d
+  - enabled: 0
+    path: Assets/Scenes/Jeremy.unity
+    guid: fc841f5450e80b745b844ab31d8b8187
   m_configObjects: {}
