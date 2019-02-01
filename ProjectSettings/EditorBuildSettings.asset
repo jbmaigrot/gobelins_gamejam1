@@ -15,12 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: 2b1d4286511168e409e507ec591ef8fe
   - enabled: 1
-    path: Assets/Scenes/Final.unity
+    path: Assets/Scenes/TwoPlayers.unity
     guid: f6cbae4dc39349e4d85c81b8cc1948d0
-  - enabled: 0
-    path: Assets/Scenes/OnePlayerDemo.unity
-    guid: 2018b95ace546b847a02c422f27ff25d
-  - enabled: 0
-    path: Assets/Scenes/Jeremy.unity
-    guid: fc841f5450e80b745b844ab31d8b8187
+  - enabled: 1
+    path: Assets/Scenes/OnePlayer.unity
+    guid: 1c96c660b55d0274c9fbbc50253e7274
   m_configObjects: {}
