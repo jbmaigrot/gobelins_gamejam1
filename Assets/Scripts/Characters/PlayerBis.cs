@@ -13,7 +13,7 @@ public class PlayerBis : MonoBehaviour
     private float dashCurrentTime;
     private bool isDashing;
     private bool isJumping;
-    
+
     public GameObject win;
     public GameObject lose;
     public GameObject one;
@@ -76,6 +76,11 @@ public class PlayerBis : MonoBehaviour
     float dashButton;
     bool jumpButton;
 
+    //Respawn timer
+    private float respawnTime;
+    private float respawnMaxTime;
+    bool respawnTimer = false;
+
 
     [SerializeField]
     private int playerMode = 2;
@@ -87,6 +92,8 @@ public class PlayerBis : MonoBehaviour
         canMove = true;
         health = 3;
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+        respawnTime = 0;
+        respawnMaxTime = 2;
 
         // Dash initialisation
         dashAction = new Dash
@@ -102,7 +109,7 @@ public class PlayerBis : MonoBehaviour
 
     // Update is called once per frame
 
-    private void FixedUpdate()
+    private void Update()
     {
         GetInputs();
         HandleLayers();
@@ -110,11 +117,24 @@ public class PlayerBis : MonoBehaviour
         v = rb.velocity;
         isGrounded = IsGrounded(rb);
 
-        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetButtonDown(playerName + "LT")) && switchOn)
+        if (respawnTimer)
+        {
+            respawnTime += Time.deltaTime;
+            if (respawnTime > respawnMaxTime)
+            {
+                respawnTimer = false;
+            }
+        }
+
+        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetButtonDown(playerName + "LT") || Input.GetButtonDown("OneTest")) && switchOn)
         {
             StartCoroutine(Switch());
+            if (respawnTimer)
+            {
+                MyAnimator.SetBool("Blink", true);
+            }
         }
-        else if ((Input.GetAxis(playerName + "LT") == 0) && !switchOn)
+        else if ((Input.GetAxis(playerName + "LT" ) == 0) && !switchOn)
         {
             switchOn = true;
         }
@@ -212,7 +232,7 @@ public class PlayerBis : MonoBehaviour
                         if (MyAnimator.GetBool("Land"))
                         {
                             MyAnimator.SetBool("Land", false);
-                            AudioManager.instance.Play(gameObject.name+"Land");
+                            AudioManager.instance.Play(gameObject.name + "Land");
                             StartCoroutine("LandEffect");
                         }
                         return true;
@@ -235,22 +255,21 @@ public class PlayerBis : MonoBehaviour
 
         MyAnimator.SetTrigger("Damage");
         MyAnimator.ResetTrigger("Damage");
-        
+
         shake.CamShake();
-        if (this.playerName == "One")
+        if (this.playerName == "One" && !IsDead())
         {
             GamePad.SetVibration(PlayerIndex.One, 0.1f, 0.1f);
             yield return new WaitForSeconds(0.7f);
             GamePad.SetVibration(PlayerIndex.One, 0, 0);
         }
 
-        if (this.playerName == "Two")
+        if (this.playerName == "Two" && !IsDead())
         {
             GamePad.SetVibration(PlayerIndex.Two, 0.1f, 0.1f);
             yield return new WaitForSeconds(0.7f);
             GamePad.SetVibration(PlayerIndex.Two, 0, 0);
         }
-
 
     }
 
@@ -259,10 +278,22 @@ public class PlayerBis : MonoBehaviour
         return health < 0;
     }
 
-    private void RespawnPlayer(Vector2 respawnPosition)
+    private IEnumerator RespawnPlayer(Vector2 respawnPosition)
     {
         rb.position = respawnPosition;
+        respawnTime = 0;
+        respawnTimer = true;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         canMove = true;
+        MyAnimator.SetBool("Blink",true);
+        while (respawnTimer == true)
+        {
+            yield return null;
+        }
+        MyAnimator.SetBool("Blink", false);
+        rb.gameObject.SetActive(true);
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     //Changes the weight of animator layers
@@ -290,11 +321,11 @@ public class PlayerBis : MonoBehaviour
             if (!IsDead())
             {
                 yield return new WaitForSeconds(0.7f);
-                RespawnPlayer(resPoint);
+                StartCoroutine(RespawnPlayer(resPoint));
             }
             else
             {
-                if(playerMode == 1)
+                if (playerMode == 1)
                 {
                     EndGame(false, "One");
                 }
@@ -310,7 +341,7 @@ public class PlayerBis : MonoBehaviour
         }
         if (collision.CompareTag("End"))
         {
-             EndGame(true, playerName);
+            EndGame(true, playerName);
         }
 
     }
@@ -337,7 +368,7 @@ public class PlayerBis : MonoBehaviour
             two.SetActive(true);
         }
         info.SetActive(true);
-        Time.timeScale=0f;
+        Time.timeScale = 0f;
     }
     private IEnumerator Switch()
     {
