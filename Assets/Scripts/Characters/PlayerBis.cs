@@ -126,7 +126,7 @@ public class PlayerBis : MonoBehaviour
             }
         }
 
-        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetButtonDown(playerName + "LT") || Input.GetButtonDown("OneTest")) && switchOn)
+        if ((Input.GetAxis(playerName + "LT") == 1 || Input.GetButtonDown(playerName + "LT")) && switchOn)
         {
             StartCoroutine(Switch());
             if (respawnTimer)
